@@ -1,0 +1,9 @@
+Mode 1
+  train your calculator skill
+
+mode 2
+  test your calculator skill  
+
+
+How can I generate Mathexercises? It is not a smart way, to write every mathexercise down. 
+and how can I give them a level, like superEasy

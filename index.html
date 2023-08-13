@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Kopfrechentrainer</title>
+</head>
+<body>
+  <h1>Willkommen!</h1>
+  <h3>Ich bin dein kleines Programm, um deine Kopfrechenskills zu trainieren</h3>
+  
+  <div class="math-exercise-div-js">Hier erscheint deine erste Aufgabe</div>
+  <input placeholder="Ergebnis">
+  <button class="math-exercise-button-js">nächste Aufgabe</button>
+  
+
+  <script>
+    const mathExercises = [
+      // Exercises of the first level have just two numbers and only plus and minus. The Numbers going not higher than 20
+
+      // How can I make it to a class?
+      exerciseSuperEasy00 = {
+        numbers {
+          firstNumber,
+          secondNumber,
+        },
+        operant: '',
+        solution: numbers.firstNumber + operant + numbers.secondNumber,
+        level: 'supereasy'
+      },
+    ];
+
+    document.querySelector('.math-exercise-button-js')
+      .addEventListener('click', () => {
+        const randomNumber = Math.random();
+        let index = Math.round(randomNumber * mathExercises.superEasy.length);
+        console.log(index);
+        const exerciseDiv = document.querySelector('.math-exercise-div-js');
+        
+        exerciseDiv.innerHTML = mathExercises.superEasy[index];
+      });
+
+    function generatingSuperEasyExercises(paraOperant) {
+      // Erstellt auf Basis der obigen Klasse neue Objekte
+      
+      // Schleife (solange Secondnumber größer als 0)
+      //   FirstNumber fängt bei 1 
+      //   SecondNumber fängt bei 50 an
+        
+      //   Ein neues Objekt wird erstellt
+      //   Mit dem Operant, der im Parameter angegeben ist
+      //   Nach jedem Durchlauf --> FirstNumber++ SecondNumber --
+    }
+
+  </script>
+</body>
+</html>
