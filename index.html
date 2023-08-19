@@ -36,10 +36,12 @@
       .addEventListener('click', () => {
         const randomNumber = Math.random();
         let index = Math.round(randomNumber * mathExercises.length);
-        console.log(index);
+        // console.log(index);
         const exerciseDiv = document.querySelector('.math-exercise-div-js');
-        
-        exerciseDiv.innerHTML = mathExercises.[index];
+
+        const selectExercise = mathExercises[index];
+
+        exerciseDiv.innerHTML = selectExercise.numbers.firstNumber + ' ' + selectExercise.operant + ' ' + selectExercise.numbers.secondNumber;
       });
 
     function generatingSuperEasyExercises() {
