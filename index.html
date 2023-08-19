@@ -35,11 +35,11 @@
     document.querySelector('.math-exercise-button-js')
       .addEventListener('click', () => {
         const randomNumber = Math.random();
-        let index = Math.round(randomNumber * mathExercises.superEasy.length);
+        let index = Math.round(randomNumber * mathExercises.length);
         console.log(index);
         const exerciseDiv = document.querySelector('.math-exercise-div-js');
         
-        exerciseDiv.innerHTML = mathExercises.superEasy[index];
+        exerciseDiv.innerHTML = mathExercises.[index];
       });
 
     function generatingSuperEasyExercises() {
