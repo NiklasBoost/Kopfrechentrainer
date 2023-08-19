@@ -15,20 +15,22 @@
   
 
   <script>
-    const mathExercises = [
-      // Exercises of the first level have just two numbers and only plus and minus. The Numbers going not higher than 20
-
-      // How can I make it to a class?
-      exerciseSuperEasy00 = {
-        numbers {
+    // Exercises of the first level have just two numbers and only plus and minus. The Numbers going not higher than 50
+    class superEasyExercise {
+      constructor(firstNumber, secondNumber, operant, solution) {
+        this.numbers = {
           firstNumber,
           secondNumber,
-        },
-        operant: '',
-        solution: numbers.firstNumber + operant + numbers.secondNumber,
-        level: 'supereasy'
-      },
-    ];
+        };
+        this.operant = operant;
+        this.solution = solution;
+        this.level = 'supereasy';
+      }
+    };
+
+    const mathExercises = [];
+
+    generatingSuperEasyExercises();
 
     document.querySelector('.math-exercise-button-js')
       .addEventListener('click', () => {
@@ -40,16 +42,20 @@
         exerciseDiv.innerHTML = mathExercises.superEasy[index];
       });
 
-    function generatingSuperEasyExercises(paraOperant) {
-      // Erstellt auf Basis der obigen Klasse neue Objekte
-      
-      // Schleife (solange Secondnumber größer als 0)
-      //   FirstNumber fängt bei 1 
-      //   SecondNumber fängt bei 50 an
-        
-      //   Ein neues Objekt wird erstellt
-      //   Mit dem Operant, der im Parameter angegeben ist
-      //   Nach jedem Durchlauf --> FirstNumber++ SecondNumber --
+    function generatingSuperEasyExercises() {
+      for(let i = 0; i < 500; i++) {
+        let number1 = Math.floor(Math.random() * 51); 
+        let number2 = Math.floor(Math.random() * 51); 
+        let solution = number1 + number2;
+        if (i < 250) {
+          const exercise = new superEasyExercise(number1, number2, '+', solution);
+          mathExercises.push(exercise);
+        } else {
+          const exercise = new superEasyExercise(number1, number2, '-', solution);
+          mathExercises.push(exercise);
+        }
+      }
+      console.log(mathExercises);
     }
 
   </script>
