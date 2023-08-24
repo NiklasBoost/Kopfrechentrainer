@@ -1,17 +1,18 @@
 import { superEasyExercise } from "./exercise-classes.js";
 
 const mathExercises = [];
+let exerciseIndex;
 
 generatingSuperEasyExercises();
 
-document.querySelector('.math-exercise-button-js')
+document.querySelector('.next-exercise-button-js')
   .addEventListener('click', () => {
     const randomNumber = Math.random();
-    let index = Math.round(randomNumber * mathExercises.length);
-    // console.log(index);
+    exerciseIndex = Math.round(randomNumber * mathExercises.length);
+    console.log(exerciseIndex);
     const exerciseDiv = document.querySelector('.math-exercise-div-js');
 
-    const selectExercise = mathExercises[index];
+    const selectExercise = mathExercises[exerciseIndex];
 
     exerciseDiv.innerHTML = selectExercise.numbers.firstNumber + ' ' + selectExercise.operant + ' ' + selectExercise.numbers.secondNumber;
   });
@@ -30,4 +31,25 @@ function generatingSuperEasyExercises() {
     }
   }
   console.log(mathExercises);
+}
+
+
+document.querySelector('.confirm-input-button-js')
+  .addEventListener('click', () => {
+
+    compareInputWithSolution();
+
+  });
+
+function compareInputWithSolution() {
+  const input = document.querySelector('.user-input-js').value;
+  const solution = mathExercises[exerciseIndex].solution;
+
+  console.log(input, solution);
+
+  if(parseInt(input) === solution) {
+    console.log(`Yeah, that's right!`);
+  } else {
+    console.log('No, wrong answer');
+  }
 }
