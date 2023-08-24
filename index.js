@@ -1,4 +1,4 @@
-import { superEasyExercise } from "./exercise-classes";
+import { superEasyExercise } from "./exercise-classes.js";
 
 const mathExercises = [];
 
