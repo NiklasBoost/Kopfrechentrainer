@@ -36,9 +36,9 @@ function generatingSuperEasyExercises() {
 
 document.querySelector('.confirm-input-button-js')
   .addEventListener('click', () => {
-
     compareInputWithSolution();
-
+    displaySolutionFeedback();
+    document.querySelector('.user-input-js').value = '';
   });
 
 function compareInputWithSolution() {
@@ -49,7 +49,27 @@ function compareInputWithSolution() {
 
   if(parseInt(input) === solution) {
     console.log(`Yeah, that's right!`);
+    return true;
   } else {
     console.log('No, wrong answer');
+    return false;
   }
+}
+
+
+function displaySolutionFeedback() {
+  const rightOrWrong = compareInputWithSolution();
+  const userInput = document.querySelector('.user-input-js').value
+  const feedbackDiv = document.querySelector('.solution-feedback-js');
+
+  if (rightOrWrong) {
+    feedbackDiv.innerHTML = `Yeah, ${userInput} is right your hell good motherfucker!`;
+  } else {
+    feedbackDiv.innerHTML = `Oh no, ${userInput} is WRONG; you dumbass idiot!`;
+  }
+
+  setTimeout(() => {
+    feedbackDiv.innerHTML = '';
+  }, 3000);
+
 }
