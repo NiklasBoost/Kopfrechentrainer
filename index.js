@@ -5,6 +5,7 @@ let exerciseIndex;
 
 generatingSuperEasyExercises();
 
+
 document.querySelector('.next-exercise-button-js')
   .addEventListener('click', () => {
     const randomNumber = Math.random();
@@ -17,6 +18,8 @@ document.querySelector('.next-exercise-button-js')
     exerciseDiv.innerHTML = selectExercise.numbers.firstNumber + ' ' + selectExercise.operant + ' ' + selectExercise.numbers.secondNumber;
   });
 
+//generating function, to add super easy exercises to the exercise-list (array). 
+//Why? Doing that manual is to elaborate
 function generatingSuperEasyExercises() {
   for(let i = 0; i < 5000; i++) {
     let number1 = Math.floor(Math.random() * 51); 
