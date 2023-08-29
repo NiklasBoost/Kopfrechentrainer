@@ -1,7 +1,0 @@
-Mode 1
-  train your calculator skill
-
-mode 2
-  test your calculator skill  
-
-

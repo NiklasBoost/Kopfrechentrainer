@@ -24,11 +24,12 @@ function generatingSuperEasyExercises() {
   for(let i = 0; i < 5000; i++) {
     let number1 = Math.floor(Math.random() * 51); 
     let number2 = Math.floor(Math.random() * 51); 
-    let solution = number1 + number2;
     if (i < 2500) {
+      let solution = number1 + number2;
       const exercise = new superEasyExercise(number1, number2, '+', solution);
       mathExercises.push(exercise);
     } else {
+      let solution = number1 - number2;
       const exercise = new superEasyExercise(number1, number2, '-', solution);
       mathExercises.push(exercise);
     }
