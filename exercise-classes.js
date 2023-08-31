@@ -10,3 +10,19 @@ export class superEasyExercise {
     this.level = 'supereasy';
   }
 };
+
+export class easyExercise {
+  constructor(firstNumber, secondNumber, thirdNumber, firstOperant, secondOperant, solution) {
+    this.numbers = {
+      firstNumber,
+      secondNumber,
+      thirdNumber,
+    };
+    this.operants = {
+      firstOperant,
+      secondOperant,
+    };
+    this.solution = solution;
+    this.level = 'easy';
+  }
+};
