@@ -1,5 +1,6 @@
 import { superEasyExercise, easyExercise } from "./exercise-classes.js";
 
+let points = 0;
 const mathExercises = [];
 let exerciseIndex;
 
@@ -53,6 +54,8 @@ function compareInputWithSolution() {
 
   if(parseInt(input) === solution) {
     console.log(`Yeah, that's right!`);
+    points++;
+    console.log('Deine Punkte:' + points);
     return true;
   } else {
     console.log('No, wrong answer');
