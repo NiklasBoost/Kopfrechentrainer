@@ -1,10 +1,10 @@
-import { superEasyExercise, easyExercise } from "./exercise-classes.js";
+import { superEasyExercise, easyExercise } from '/exercise-classes.js';
+import { pointInterval, points } from '/point-system.js';
 
-let points = 0;
-setInterval(() => {
-  points-=0.1;
-  console.log('Deine Punkte: ' + points);
-}, 1000);
+pointInterval();
+console.log(points);
+points++;
+console.log(points);
 
 const mathExercises = [];
 let exerciseIndex;
