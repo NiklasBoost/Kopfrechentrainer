@@ -3,19 +3,67 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Kopfrechentrainer</title>
+  <title>Choose your Mode</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      overflow: hidden;
+      font-family: Arial, Helvetica, sans-serif;
+    }
+
+    a {
+      text-decoration: none;
+      color: black;
+    }
+
+    h1, p {
+      margin: 0;
+      padding: 0;
+    }
+
+    html, body, .choose-container {
+      height: 100%;
+    }
+
+    .choose-container {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      align-items: center;
+      text-align: center;
+      background-color: grey;
+    }
+
+      .trainMath-container {
+        background-color: lightblue;
+        height: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        
+      }
+
+      .testMath-container {
+        background-color: lightgreen;
+        height: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+      }
+
+  </style>
 </head>
 <body>
-  <h1>Willkommen!</h1>
-  <h3>Ich bin dein kleines Programm, um deine Kopfrechenskills zu trainieren</h3>
+  <div class="choose-container">
+    <a href="trainMath.html" class="trainMath-container">
+      <h1>Trainiere deine Matheskills!</h1>
+    </a>
+    <a class="testMath-container">
+      <h1>Teste deine Matheskills!</h1>
+      <p>(Noch nicht gecoded!)</p>
+    </a>
+  </div>
   
-  <div class="math-exercise-div-js"></div>
-  <input class="user-input-js" placeholder="Ergebnis">
-  <button class="confirm-input-button-js">Eingabe bestätigen</button>
-  <button class="next-exercise-button-js">nächste Aufgabe</button>
-  <div class="solution-feedback-js"></div>
-  
-
-  <script type="module" src="index.js"></script>
 </body>
 </html>
