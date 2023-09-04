@@ -1,10 +1,10 @@
 import { superEasyExercise, easyExercise } from '/exercise-classes.js';
-import { pointInterval, points } from '/point-system.js';
+import { pointInterval, points423 } from '/point-system.js';
 
 pointInterval();
-console.log(points);
-points++;
-console.log(points);
+// console.log(points);
+// points++;
+// console.log(points);
 
 const mathExercises = [];
 let exerciseIndex;
@@ -59,13 +59,13 @@ function compareInputWithSolution() {
 
   if(parseInt(input) === solution) {
     console.log(`Yeah, that's right!`);
-    points+=10;
-    console.log('Deine Punkte:' + points);
+    points423+=10;
+    console.log('Deine Punkte:' + points423);
     return true;
   } else {
     console.log('No, wrong answer');
-    points-=5;
-    console.log('Deine Punkte:' + points);
+    points423-=5;
+    console.log('Deine Punkte:' + points423);
     return false;
   }
 }
