@@ -33,7 +33,6 @@ html, body, .choose-container {
     display: flex;
     align-items: center;
     justify-content: center;
-    
   }
 
   .testMath-container {
@@ -42,5 +41,4 @@ html, body, .choose-container {
     display: flex;
     align-items: center;
     justify-content: center;
-
   }
