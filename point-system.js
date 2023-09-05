@@ -1,10 +1,19 @@
-let points423 = 1;
+let points = 0;
 
 export const pointInterval = () => {
   setInterval(() => {
-    points423-=0.1;
-    console.log('Deine Punkte: ' + points423);
+    points-=0.1;
+    console.log('Deine Punkte: ' + points);
   }, 1000);  
 }
 
-export { points423 };
+export function addPoints(numb) {
+  points+=numb;
+  console.log('Deine Punkte:' + points);
+}
+
+export function removePoints(numb) {
+  points-=numb;
+  console.log('Deine Punkte:' + points);
+}
+
