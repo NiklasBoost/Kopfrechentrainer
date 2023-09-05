@@ -1,5 +1,5 @@
 import { superEasyExercise, easyExercise } from '/exercise-classes.js';
-import { pointInterval, addPoints, removePoints  } from '/point-system.js';
+import { earnedPointsInterval, earnedPointsIntervalObj, stopInterval, pointInterval, addPoints, removePoints, mathEarndedPoints  } from '/point-system.js';
 
 pointInterval();
 
@@ -19,6 +19,8 @@ document.querySelector('.next-exercise-button-js')
     const selectExercise = mathExercises[exerciseIndex];
 
     exerciseDiv.innerHTML = selectExercise.numbers.firstNumber + ' ' + selectExercise.operant + ' ' + selectExercise.numbers.secondNumber;
+
+    earnedPointsInterval();
   });
 
 //generating function, to add super easy exercises to the exercise-list (array). 
@@ -56,7 +58,8 @@ function compareInputWithSolution() {
 
   if(parseInt(input) === solution) {
     console.log(`Yeah, that's right!`);
-    addPoints(10);
+    addPoints(mathEarndedPoints());
+    stopInterval(earnedPointsIntervalObj);
     return true;
   } else {
     console.log('No, wrong answer');
