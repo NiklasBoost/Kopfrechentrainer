@@ -2,9 +2,6 @@ import { superEasyExercise, easyExercise } from '/exercise-classes.js';
 import { pointInterval, addPoints, removePoints  } from '/point-system.js';
 
 pointInterval();
-// console.log(points);
-// points++;
-// console.log(points);
 
 const mathExercises = [];
 let exerciseIndex;
