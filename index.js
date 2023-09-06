@@ -79,7 +79,6 @@ function nextExcercise() {
 }
 
 function compareDisplayNext() {
-  compareInputWithSolution();
   displaySolutionFeedback();
   document.querySelector('.user-input-js').value = '';
   nextExcercise();
