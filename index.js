@@ -1,12 +1,13 @@
 import { superEasyExercise, easyExercise } from '/exercise-classes.js';
 import { earnedPointsInterval, earnedPointsIntervalObj, stopInterval, pointInterval, addPoints, removePoints, mathEarndedPoints  } from '/point-system.js';
 
-pointInterval();
 
 const mathExercises = [];
 let exerciseIndex;
 
 generatingSuperEasyExercises();
+nextExcercise();
+pointInterval();
 
 
 
