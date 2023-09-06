@@ -9,19 +9,6 @@ let exerciseIndex;
 generatingSuperEasyExercises();
 
 
-document.querySelector('.next-exercise-button-js')
-  .addEventListener('click', () => {
-    const randomNumber = Math.random();
-    exerciseIndex = Math.round(randomNumber * mathExercises.length);
-    console.log(exerciseIndex);
-    const exerciseDiv = document.querySelector('.math-exercise-div-js');
-
-    const selectExercise = mathExercises[exerciseIndex];
-
-    exerciseDiv.innerHTML = selectExercise.numbers.firstNumber + ' ' + selectExercise.operant + ' ' + selectExercise.numbers.secondNumber;
-
-    earnedPointsInterval();
-  });
 
 //generating function, to add super easy exercises to the exercise-list (array). 
 //Why? Doing that manual is to elaborate
@@ -42,14 +29,6 @@ function generatingSuperEasyExercises() {
   console.log(mathExercises);
 }
 
-
-document.querySelector('.confirm-input-button-js')
-  .addEventListener('click', () => {
-    compareInputWithSolution();
-    displaySolutionFeedback();
-    document.querySelector('.user-input-js').value = '';
-  });
-
 function compareInputWithSolution() {
   const input = document.querySelector('.user-input-js').value;
   const solution = mathExercises[exerciseIndex].solution;
@@ -68,12 +47,11 @@ function compareInputWithSolution() {
   }
 }
 
-
 function displaySolutionFeedback() {
   const rightOrWrong = compareInputWithSolution();
   const userInput = document.querySelector('.user-input-js').value
   const feedbackDiv = document.querySelector('.solution-feedback-js');
-
+  
   if (rightOrWrong) {
     feedbackDiv.innerHTML = `Yeah, ${userInput} is right your hell good motherfucker!`;
   } else {
@@ -83,5 +61,41 @@ function displaySolutionFeedback() {
   setTimeout(() => {
     feedbackDiv.innerHTML = '';
   }, 3000);
-
+  
 }
+
+function nextExcercise() {
+  const randomNumber = Math.random();
+  exerciseIndex = Math.round(randomNumber * mathExercises.length);
+  console.log(exerciseIndex);
+  const exerciseDiv = document.querySelector('.math-exercise-div-js');
+  
+  const selectExercise = mathExercises[exerciseIndex];
+  
+  exerciseDiv.innerHTML = selectExercise.numbers.firstNumber + ' ' + selectExercise.operant + ' ' + selectExercise.numbers.secondNumber;
+  
+  earnedPointsInterval();
+}
+
+document.querySelector('.user-input-js')
+  .addEventListener('keydown', () => {
+    if(event.key === 'Enter') {
+      compareInputWithSolution();
+      displaySolutionFeedback();
+      document.querySelector('.user-input-js').value = '';
+      nextExcercise();
+    }
+  })
+  
+document.querySelector('.next-exercise-button-js')
+  .addEventListener('click', () => {
+    nextExcercise();    
+  });
+
+document.querySelector('.confirm-input-button-js')
+  .addEventListener('click', () => {
+    compareInputWithSolution();
+    displaySolutionFeedback();
+    document.querySelector('.user-input-js').value = '';
+    nextExcercise();
+  });
