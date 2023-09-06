@@ -5,7 +5,7 @@ export const earnedPointsInterval = () => {
   pointsTimer = 0;
   earnedPointsIntervalObj = setInterval(() => {
     pointsTimer++;
-    console.log('INTERVAL FUNKT ' + pointsTimer);
+    // console.log('INTERVAL FUNKT ' + pointsTimer);
   }, 1000)
 } 
 
@@ -17,7 +17,7 @@ export function stopInterval(interv) {
 export const pointInterval = () => {
   setInterval(() => {
     points-=0.1;
-    // console.log('Deine Punkte: ' + points);
+    console.log('Deine Punkte: ' + points);
   }, 1000);  
 }
 
