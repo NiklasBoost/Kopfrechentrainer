@@ -77,13 +77,17 @@ function nextExcercise() {
   earnedPointsInterval();
 }
 
+function compareDisplayNext() {
+  compareInputWithSolution();
+  displaySolutionFeedback();
+  document.querySelector('.user-input-js').value = '';
+  nextExcercise();
+}
+
 document.querySelector('.user-input-js')
   .addEventListener('keydown', () => {
     if(event.key === 'Enter') {
-      compareInputWithSolution();
-      displaySolutionFeedback();
-      document.querySelector('.user-input-js').value = '';
-      nextExcercise();
+      compareDisplayNext();
     }
   })
   
@@ -94,8 +98,5 @@ document.querySelector('.next-exercise-button-js')
 
 document.querySelector('.confirm-input-button-js')
   .addEventListener('click', () => {
-    compareInputWithSolution();
-    displaySolutionFeedback();
-    document.querySelector('.user-input-js').value = '';
-    nextExcercise();
+    compareDisplayNext();
   });
