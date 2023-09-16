@@ -43,5 +43,5 @@ export const mathEarndedPoints = () => {
 function displayPoints() {
   const pointsContainer = document.querySelector('.your-points-js');
   const roundPoints = Math.round(points);
-  pointsContainer.innerHTML = roundPoints;
+  pointsContainer.innerHTML = roundPoints + ' Punkte';
 }
