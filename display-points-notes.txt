@@ -1,4 +1,11 @@
 In this branch we want to get the points at the display and get them updatet every second
 
 1. code a container for the codes
+2. place the container in the right corner of the side
 2. put the points in that container
+
+
+
+
+IDEAS:
+- pick points away, if he wants to avoid an exercise

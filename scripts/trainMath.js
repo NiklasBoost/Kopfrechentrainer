@@ -1,5 +1,5 @@
-import { superEasyExercise, easyExercise } from '/exercise-classes.js';
-import { earnedPointsInterval, earnedPointsIntervalObj, stopInterval, pointInterval, addPoints, removePoints, mathEarndedPoints  } from '/point-system.js';
+import { superEasyExercise, easyExercise } from '/scripts/exercise-classes.js';
+import { earnedPointsInterval, earnedPointsIntervalObj, stopInterval, pointInterval, addPoints, removePoints, mathEarndedPoints  } from '/scripts/point-system.js';
 
 
 const mathExercises = [];
