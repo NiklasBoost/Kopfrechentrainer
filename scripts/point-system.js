@@ -54,10 +54,8 @@ function displayPoints() {
 function displayPointsAdjust(numb) {
   console.log('ADJUSTMENT ' + numb);
   const adjustContainer = document.querySelector('.your-points-add-remove-js');
-  if (numb > 0) {
+  if (numb >= 0) {
     adjustContainer.innerHTML = '+ ' + numb;
-  } else if (numb = 0) {
-    adjustContainer.innerHTML = '';
   } else {
     adjustContainer.innerHTML = numb;
   }
