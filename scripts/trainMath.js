@@ -89,7 +89,7 @@ document.querySelector('.user-input-js')
     if(event.key === 'Enter') {
       compareDisplayNext();
     }
-  })
+  });
   
 document.querySelector('.next-exercise-button-js')
   .addEventListener('click', () => {
