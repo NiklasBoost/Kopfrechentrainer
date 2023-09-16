@@ -23,13 +23,18 @@ export const pointInterval = () => {
 }
 
 export function addPoints(numb) {
+  const displayNumb = numb;
+  displayPointsAdjust(displayNumb);
   points+=numb;
   console.log('Deine Punkte:' + points);
 }
 
 export function removePoints(numb) {
+  const displayNumb = 0 - numb;
+  displayPointsAdjust(displayNumb)
   points-=numb;
   console.log('Deine Punkte:' + points);
+
 }
 
 export const mathEarndedPoints = () => {
@@ -44,4 +49,20 @@ function displayPoints() {
   const pointsContainer = document.querySelector('.your-points-js');
   const roundPoints = Math.round(points);
   pointsContainer.innerHTML = roundPoints + ' Punkte';
+}
+
+function displayPointsAdjust(numb) {
+  console.log('ADJUSTMENT ' + numb);
+  const adjustContainer = document.querySelector('.your-points-add-remove-js');
+  if (numb > 0) {
+    adjustContainer.innerHTML = '+ ' + numb;
+  } else if (numb = 0) {
+    adjustContainer.innerHTML = '';
+  } else {
+    adjustContainer.innerHTML = numb;
+  }
+
+  setTimeout(() => {
+    adjustContainer.innerHTML = '';
+  }, 1000);
 }

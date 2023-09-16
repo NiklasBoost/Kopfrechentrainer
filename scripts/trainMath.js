@@ -95,6 +95,7 @@ document.querySelector('.next-exercise-button-js')
   .addEventListener('click', () => {
     nextExcercise();    
     removePoints(30);
+    
   });
 
 document.querySelector('.confirm-input-button-js')
