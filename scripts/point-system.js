@@ -18,6 +18,7 @@ export const pointInterval = () => {
   setInterval(() => {
     points-=0.1;
     console.log('Deine Punkte: ' + points);
+    displayPoints();
   }, 1000);  
 }
 
@@ -37,4 +38,10 @@ export const mathEarndedPoints = () => {
   yourPoints = yourPoints - pointsTimer;
   console.log('Du hast dir ' + yourPoints + ' dazuverdient');
   return yourPoints;
+}
+
+function displayPoints() {
+  const pointsContainer = document.querySelector('.your-points-js');
+  const roundPoints = Math.round(points);
+  pointsContainer.innerHTML = roundPoints;
 }
