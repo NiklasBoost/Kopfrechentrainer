@@ -1,0 +1,9 @@
+If you get x points, you get up to the next level and get other exercises
+This level will display at the side.
+For example: Level 1 - SuperEasy ...
+
+**Target:** Code a Levelsystem. When it comes to level 2, it should appear: Level 2 is not coding yet
+
+1. Add a new file for the levelsystem
+2. code a interval, which checks every second, if you have enough points for the next level
+3. code a function, which can be placed in this interval
