@@ -1,6 +1,6 @@
 import { superEasyExercise, easyExercise } from '/scripts/exercise-classes.js';
 import { earnedPointsInterval, earnedPointsIntervalObj, stopInterval, pointInterval, addPoints, removePoints, mathEarndedPoints  } from '/scripts/point-system.js';
-import { levelInterval } from '/system/level-system.js';
+import { levelInterval } from '/scripts/level-system.js';
 
 const mathExercises = [];
 let exerciseIndex;

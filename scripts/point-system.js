@@ -1,4 +1,4 @@
-let points = 0;
+export let points = 0;
 let pointsTimer = 0;
 export let earnedPointsIntervalObj;
 export const earnedPointsInterval = () => {
