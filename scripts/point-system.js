@@ -17,7 +17,7 @@ export function stopInterval(interv) {
 export const pointInterval = () => {
   setInterval(() => {
     points-=0.1;
-    console.log('Deine Punkte: ' + points);
+    // console.log('Deine Punkte: ' + points);
     displayPoints();
   }, 1000);  
 }
@@ -26,15 +26,14 @@ export function addPoints(numb) {
   const displayNumb = numb;
   displayPointsAdjust(displayNumb);
   points+=numb;
-  console.log('Deine Punkte:' + points);
+  // console.log('Deine Punkte:' + points);
 }
 
 export function removePoints(numb) {
   const displayNumb = 0 - numb;
   displayPointsAdjust(displayNumb)
   points-=numb;
-  console.log('Deine Punkte:' + points);
-
+  // console.log('Deine Punkte:' + points);
 }
 
 export const mathEarndedPoints = () => {
