@@ -7,7 +7,7 @@ export class superEasyExercise {
     };
     this.operant = operant;
     this.solution = solution;
-    this.level = 'supereasy';
+    this.level = 'superEasy';
   }
 };
 
