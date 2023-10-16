@@ -1,7 +1,12 @@
+import Exercises from "./components/exercises"
+import LevelSystem from "./components/levels"
 
 
-function App() {
-
+const App = () => {
+  <>
+    <Exercises />
+    <LevelSystem />
+  </>
 }
 
 export default App
