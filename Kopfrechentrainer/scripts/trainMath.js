@@ -31,40 +31,40 @@ levelInterval();
 //   console.log(mathExercises);
 // }
 
-function compareInputWithSolution() {
-  const input = document.querySelector('.user-input-js').value;
-  const solution = mathExercises[exerciseIndex].solution;
+// function compareInputWithSolution() {
+//   const input = document.querySelector('.user-input-js').value;
+//   const solution = mathExercises[exerciseIndex].solution;
 
-  console.log(input, solution);
+//   console.log(input, solution);
 
-  if(parseInt(input) === solution) {
-    console.log(`Yeah, that's right!`);
+  // if(parseInt(input) === solution) {
+  //   console.log(`Yeah, that's right!`);
     addPoints(mathEarndedPoints());
     stopInterval(earnedPointsIntervalObj);
-    return true;
-  } else {
-    console.log('No, wrong answer');
+    // return true;
+  // } else {
+    // console.log('No, wrong answer');
     removePoints(5);
-    return false;
-  }
-}
+    // return false;
+  // }
+// }
 
-function displaySolutionFeedback() {
-  const rightOrWrong = compareInputWithSolution();
-  const userInput = document.querySelector('.user-input-js').value
-  const feedbackDiv = document.querySelector('.solution-feedback-js');
+// function displaySolutionFeedback() {
+//   const rightOrWrong = compareInputWithSolution();
+//   const userInput = document.querySelector('.user-input-js').value
+//   const feedbackDiv = document.querySelector('.solution-feedback-js');
   
-  if (rightOrWrong) {
-    feedbackDiv.innerHTML = `Yeah, ${userInput} is right your hell good motherfucker!`;
-  } else {
-    feedbackDiv.innerHTML = `Oh no, ${userInput} is WRONG; you dumbass idiot!`;
-  }
+//   if (rightOrWrong) {
+//     feedbackDiv.innerHTML = `Yeah, ${userInput} is right your hell good motherfucker!`;
+//   } else {
+//     feedbackDiv.innerHTML = `Oh no, ${userInput} is WRONG; you dumbass idiot!`;
+//   }
 
-  setTimeout(() => {
-    feedbackDiv.innerHTML = '';
-  }, 3000);
+//   setTimeout(() => {
+//     feedbackDiv.innerHTML = '';
+//   }, 3000);
   
-}
+// }
 
 // function nextExcercise() {
   // const randomNumber = Math.random();
@@ -79,11 +79,11 @@ function displaySolutionFeedback() {
   earnedPointsInterval();
 // }
 
-function compareDisplayNext() {
-  displaySolutionFeedback();
-  document.querySelector('.user-input-js').value = '';
-  nextExcercise();
-}
+// function compareDisplayNext() {
+//   displaySolutionFeedback();
+//   document.querySelector('.user-input-js').value = '';
+//   nextExcercise();
+// }
 
 document.querySelector('.user-input-js')
   .addEventListener('keydown', () => {
