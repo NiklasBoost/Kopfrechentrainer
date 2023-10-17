@@ -49,7 +49,21 @@ const Exercises = () => {
   
   
   function handleInputChange(e: React.ChangeEvent<HTMLInputElement>) {
-    setUserInput(e.target.value);
+    const newValue = e.target.value;
+    setUserInput(newValue);  
+  }
+
+  function handleKeyDown(e: React.KeyboardEvent<HTMLInputElement>) {
+    if(e.key === 'Enter') {
+      displaySolutionFeedback();
+      setUserInput('');
+      nextExercise();
+    } else if(e.key === 'n') {
+      e.preventDefault();
+      nextExercise();
+      
+
+    }
   }
 
   return (
@@ -59,6 +73,7 @@ const Exercises = () => {
         placeholder="Ergebnis"
         value={userInput}
         onChange={handleInputChange}
+        onKeyDown={handleKeyDown}
       />
       <button 
         onClick={() => {
