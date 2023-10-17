@@ -1,10 +1,13 @@
 import { useState, useEffect } from "react";
 import { superEasyExercises, generatingSuperEasyExercises } from "../data/data-generating";
+import { compareWithSolution } from "./compareWithSolution";
 
 const Exercises = () => {
 
   const [exerciseIndex, setExerciseIndex] = useState(0);
   const [selectedExercise, setSelectedExercise] = useState('');
+  const [userInput, setUserInput] = useState('');
+  const [solutionFeedback, setSolutionFeedback] = useState('');
 
   //initialize the easiest exercise at first
   useEffect(() => {
@@ -13,31 +16,65 @@ const Exercises = () => {
   }, [])
 
   function nextExercise() {
-    const randomNumber = Math.random();
-    setExerciseIndex(Math.round(randomNumber * superEasyExercises.length))
-    console.log(exerciseIndex);
+    setExerciseIndex((prevIndex) => {
+      const newIndex = Math.round(Math.random() * superEasyExercises.length);
+      console.log(newIndex);
+  
+      const selectExercise = superEasyExercises[newIndex];
+      setSelectedExercise(
+        selectExercise.numbers.firstNumber +
+          ' ' +
+          selectExercise.operant +
+          ' ' +
+          selectExercise.numbers.secondNumber
+      );
+      return newIndex; // Gib den neuen Index zurück
+    });
+  }
+
+  function displaySolutionFeedback() {
+    const rightOrWrong = compareWithSolution(userInput, exerciseIndex);
     
-    const selectExercise = superEasyExercises[exerciseIndex];
+    if (rightOrWrong) {
+      setSolutionFeedback(`Yeah, ${userInput} is right your hell good motherfucker!`);
+    } else {
+      setSolutionFeedback(`Oh no, ${userInput} is WRONG; you dumbass idiot!`);
+    }
+  
+    setTimeout(() => {
+      setSolutionFeedback('');
+    }, 3000);
     
-    setSelectedExercise(selectExercise.numbers.firstNumber + ' ' + selectExercise.operant + ' ' + selectExercise.numbers.secondNumber);
-  };
+  }
+  
+  
+  function handleInputChange(e: React.ChangeEvent<HTMLInputElement>) {
+    setUserInput(e.target.value);
+  }
 
   return (
     <>
       <div>{selectedExercise}</div>
       <input 
-        className="user-input-js" 
         placeholder="Ergebnis"
+        value={userInput}
+        onChange={handleInputChange}
       />
-      <button className="confirm-input-button-js">
+      <button 
+        onClick={() => {
+          displaySolutionFeedback();
+          setUserInput('');
+          nextExercise();
+        }}
+      >
         Eingabe bestätigen
       </button>
       <button 
-        className="next-exercise-button-js"
-        onClick={nextExercise}>
+        onClick={nextExercise}
+      >
         Aufgabe überspringen
       </button>
-      <div className="solution-feedback-js"></div>
+      <div>{solutionFeedback}</div>
     </>
   )
 }
