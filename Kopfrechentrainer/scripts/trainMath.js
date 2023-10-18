@@ -39,12 +39,14 @@ levelInterval();
 
   // if(parseInt(input) === solution) {
   //   console.log(`Yeah, that's right!`);
-    addPoints(mathEarndedPoints());
-    stopInterval(earnedPointsIntervalObj);
+    // addPoints(mathEarndedPoints());
+    // stopInterval(earnedPointsIntervalObj);
+
     // return true;
   // } else {
     // console.log('No, wrong answer');
-    removePoints(5);
+    // removePoints(5);
+
     // return false;
   // }
 // }
@@ -76,7 +78,7 @@ levelInterval();
   
   // exerciseDiv.innerHTML = selectExercise.numbers.firstNumber + ' ' + selectExercise.operant + ' ' + selectExercise.numbers.secondNumber;
   
-  earnedPointsInterval();
+  // earnedPointsInterval();
 // }
 
 // function compareDisplayNext() {

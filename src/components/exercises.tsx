@@ -3,6 +3,7 @@ import { superEasyExercises, generatingSuperEasyExercises } from "../data/data-g
 import { compareWithSolution } from "./compareWithSolution";
 import { removePoints } from "./winOrLose";
 import { ExercisesTypes } from "../types/exercisesTypes";
+import { earnedPointsTimer } from "./earnedPoints";
 
 
 const Exercises = ({
@@ -37,12 +38,13 @@ const Exercises = ({
           ' ' +
           selectExercise.numbers.secondNumber
       );
+      earnedPointsTimer();
       return newIndex; // Gib den neuen Index zurück
     });
   }
 
   function displaySolutionFeedback() {
-    const rightOrWrong = compareWithSolution(userInput, exerciseIndex);
+    const rightOrWrong = compareWithSolution(setPoints, userInput, exerciseIndex);
     
     if (rightOrWrong) {
       setSolutionFeedback(`Yeah, ${userInput} is right your hell good motherfucker!`);

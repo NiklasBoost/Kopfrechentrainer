@@ -1,18 +1,19 @@
 // export let points = 0;
-let pointsTimer = 0;
-export let earnedPointsIntervalObj;
-export const earnedPointsInterval = () => {
-  pointsTimer = 0;
-  earnedPointsIntervalObj = setInterval(() => {
-    pointsTimer++;
+// let pointsTimer = 0;
+// export let earnedPointsIntervalObj;
+// export const earnedPointsInterval = () => {
+//   pointsTimer = 0;
+//   earnedPointsIntervalObj = setInterval(() => {
+//     pointsTimer++;
     // console.log('INTERVAL FUNKT ' + pointsTimer);
-  }, 1000)
-} 
+  // }, 1000)
 
-export function stopInterval(interv) {
-  clearInterval(interv);
-  console.log('Interval gestoppt!');
-}
+// } 
+
+// export function stopInterval(interv) {
+//   clearInterval(interv);
+//   console.log('Interval gestoppt!');
+// }
 
 // export const pointInterval = () => {
 //   setInterval(() => {
@@ -36,13 +37,13 @@ export function stopInterval(interv) {
   // console.log('Deine Punkte:' + points);
 // }
 
-export const mathEarndedPoints = () => {
-  console.log(pointsTimer);
-  let yourPoints = 50;
-  yourPoints = yourPoints - pointsTimer;
-  console.log('Du hast dir ' + yourPoints + ' dazuverdient');
-  return yourPoints;
-}
+// export const mathEarndedPoints = () => {
+//   console.log(pointsTimer);
+//   let yourPoints = 50;
+//   yourPoints = yourPoints - pointsTimer;
+//   console.log('Du hast dir ' + yourPoints + ' dazuverdient');
+//   return yourPoints;
+// }
 
 // function displayPoints() {
 //   const pointsContainer = document.querySelector('.your-points-js');
