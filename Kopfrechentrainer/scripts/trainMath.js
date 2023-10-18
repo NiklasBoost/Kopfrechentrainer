@@ -6,8 +6,8 @@ import { levelInterval } from './level-system.js';
 // let exerciseIndex;
 
 // generatingSuperEasyExercises();
-nextExcercise();
-pointInterval();
+// nextExcercise();
+// pointInterval();
 levelInterval();
 
 
@@ -85,21 +85,21 @@ levelInterval();
 //   nextExcercise();
 // }
 
-document.querySelector('.user-input-js')
-  .addEventListener('keydown', () => {
-    if(event.key === 'Enter') {
-      compareDisplayNext();
-    }
-  });
+// document.querySelector('.user-input-js')
+//   .addEventListener('keydown', () => {
+//     if(event.key === 'Enter') {
+//       compareDisplayNext();
+//     }
+//   });
   
-document.querySelector('.next-exercise-button-js')
-  .addEventListener('click', () => {
-    nextExcercise();    
-    removePoints(30);
+// document.querySelector('.next-exercise-button-js')
+//   .addEventListener('click', () => {
+//     nextExcercise();    
+//     removePoints(30);
     
-  });
+//   });
 
-document.querySelector('.confirm-input-button-js')
-  .addEventListener('click', () => {
-    compareDisplayNext();
-  });
+// document.querySelector('.confirm-input-button-js')
+//   .addEventListener('click', () => {
+//     compareDisplayNext();
+//   });

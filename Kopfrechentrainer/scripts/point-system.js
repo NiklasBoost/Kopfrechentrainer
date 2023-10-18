@@ -1,4 +1,4 @@
-export let points = 0;
+// export let points = 0;
 let pointsTimer = 0;
 export let earnedPointsIntervalObj;
 export const earnedPointsInterval = () => {
@@ -14,27 +14,27 @@ export function stopInterval(interv) {
   console.log('Interval gestoppt!');
 }
 
-export const pointInterval = () => {
-  setInterval(() => {
-    points-=0.1;
-    // console.log('Deine Punkte: ' + points);
-    displayPoints();
-  }, 1000);  
-}
+// export const pointInterval = () => {
+//   setInterval(() => {
+//     points-=0.1;
+//     // console.log('Deine Punkte: ' + points);
+//     displayPoints();
+//   }, 1000);  
+// }
 
-export function addPoints(numb) {
-  const displayNumb = numb;
+// export function addPoints(numb) {
+  // const displayNumb = numb;
   displayPointsAdjust(displayNumb);
-  points+=numb;
+  // points+=numb;
   // console.log('Deine Punkte:' + points);
-}
+// }
 
-export function removePoints(numb) {
-  const displayNumb = 0 - numb;
+// export function removePoints(numb) {
+  // const displayNumb = 0 - numb;
   displayPointsAdjust(displayNumb)
-  points-=numb;
+  // points-=numb;
   // console.log('Deine Punkte:' + points);
-}
+// }
 
 export const mathEarndedPoints = () => {
   console.log(pointsTimer);
@@ -44,11 +44,11 @@ export const mathEarndedPoints = () => {
   return yourPoints;
 }
 
-function displayPoints() {
-  const pointsContainer = document.querySelector('.your-points-js');
-  const roundPoints = Math.round(points);
-  pointsContainer.innerHTML = roundPoints + ' Punkte';
-}
+// function displayPoints() {
+//   const pointsContainer = document.querySelector('.your-points-js');
+//   const roundPoints = Math.round(points);
+//   pointsContainer.innerHTML = roundPoints + ' Punkte';
+// }
 
 function displayPointsAdjust(numb) {
   console.log('ADJUSTMENT ' + numb);
