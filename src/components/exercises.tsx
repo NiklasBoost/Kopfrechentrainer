@@ -1,8 +1,17 @@
 import { useState, useEffect } from "react";
 import { superEasyExercises, generatingSuperEasyExercises } from "../data/data-generating";
 import { compareWithSolution } from "./compareWithSolution";
+import { removePoints } from "./winOrLose";
+import { ExercisesTypes } from "../types/exercisesTypes";
 
-const Exercises = () => {
+
+const Exercises = ({
+  points, 
+  setPoints,
+  pointsWin, 
+  pointsLose, 
+  setPointsWin, 
+  setPointsLose }: ExercisesTypes) => {
 
   const [exerciseIndex, setExerciseIndex] = useState(0);
   const [selectedExercise, setSelectedExercise] = useState('');
@@ -85,7 +94,10 @@ const Exercises = () => {
         Eingabe bestätigen
       </button>
       <button 
-        onClick={nextExercise}
+        onClick={() => {
+          nextExercise();
+          removePoints(setPoints, 30);
+        }}
       >
         Aufgabe überspringen
       </button>

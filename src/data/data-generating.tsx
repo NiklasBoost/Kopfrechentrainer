@@ -1,5 +1,5 @@
 import { superEasyExercise } from "../classes/generating";
-import { superEasyExerciseType } from "../types/generating";
+import { superEasyExerciseType } from "../types/generatingTypes";
 
 export const superEasyExercises: superEasyExerciseType[] = [];
 
