@@ -25,14 +25,14 @@
 
 // export function addPoints(numb) {
   // const displayNumb = numb;
-  displayPointsAdjust(displayNumb);
+  // displayPointsAdjust(displayNumb);
   // points+=numb;
   // console.log('Deine Punkte:' + points);
 // }
 
 // export function removePoints(numb) {
   // const displayNumb = 0 - numb;
-  displayPointsAdjust(displayNumb)
+  // displayPointsAdjust(displayNumb)
   // points-=numb;
   // console.log('Deine Punkte:' + points);
 // }
@@ -51,16 +51,16 @@
 //   pointsContainer.innerHTML = roundPoints + ' Punkte';
 // }
 
-function displayPointsAdjust(numb) {
-  console.log('ADJUSTMENT ' + numb);
-  const adjustContainer = document.querySelector('.your-points-add-remove-js');
-  if (numb >= 0) {
-    adjustContainer.innerHTML = '+ ' + numb;
-  } else {
-    adjustContainer.innerHTML = numb;
-  }
+// function displayPointsAdjust(numb) {
+//   console.log('ADJUSTMENT ' + numb);
+//   const adjustContainer = document.querySelector('.your-points-add-remove-js');
+//   if (numb >= 0) {
+//     adjustContainer.innerHTML = '+ ' + numb;
+//   } else {
+//     adjustContainer.innerHTML = numb;
+//   }
 
-  setTimeout(() => {
-    adjustContainer.innerHTML = '';
-  }, 1000);
-}
+//   setTimeout(() => {
+//     adjustContainer.innerHTML = '';
+//   }, 1000);
+// }

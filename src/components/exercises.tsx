@@ -44,7 +44,7 @@ const Exercises = ({
   }
 
   function displaySolutionFeedback() {
-    const rightOrWrong = compareWithSolution(setPoints, userInput, exerciseIndex);
+    const rightOrWrong = compareWithSolution(setPointsWin, setPointsLose, setPoints, userInput, exerciseIndex);
     
     if (rightOrWrong) {
       setSolutionFeedback(`Yeah, ${userInput} is right your hell good motherfucker!`);
@@ -98,7 +98,7 @@ const Exercises = ({
       <button 
         onClick={() => {
           nextExercise();
-          removePoints(setPoints, 30);
+          removePoints(setPointsLose, setPoints, 30);
         }}
       >
         Aufgabe überspringen
