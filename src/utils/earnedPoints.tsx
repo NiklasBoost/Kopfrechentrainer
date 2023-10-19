@@ -8,6 +8,17 @@ export const earnedPointsTimer = () => {
   }, 1000)
 } 
 
+export function pointInterval (sState: React.Dispatch<React.SetStateAction<number>>): number {
+  console.log('Interval wurde gestartet');
+  return setInterval(() => {
+    sState((prevState: number) => {
+      return prevState - 0.1;
+    });
+
+  }, 1000);  
+}
+
+
 export function stopInterval() {
   clearInterval(earnedPointsInterval);
   console.log('Interval gestoppt!');

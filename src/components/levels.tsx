@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { pointInterval } from "./pointsInterval";
+import { pointInterval } from "../utils/pointsInterval";
 import { LevelSystemTypes } from "../types/levelsTypes";
 
 const LevelSystem = ({ 
