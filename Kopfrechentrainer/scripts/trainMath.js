@@ -8,7 +8,7 @@ import { levelInterval } from './level-system.js';
 // generatingSuperEasyExercises();
 // nextExcercise();
 // pointInterval();
-levelInterval();
+// levelInterval();
 
 
 

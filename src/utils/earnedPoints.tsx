@@ -4,7 +4,7 @@ export const earnedPointsTimer = () => {
   pointsTimer = 0;
   earnedPointsInterval = setInterval(() => {
     pointsTimer++;
-    console.log(pointsTimer);
+    // console.log(pointsTimer);
   }, 1000)
 } 
 
