@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { pointInterval } from "../utils/earnedPoints";
 import { LevelSystemTypes } from "../types/levelsTypes";
+import { levelcheck } from "../utils/levelcheck";
 
 const LevelSystem = ({ 
   points, 
@@ -18,29 +19,9 @@ const LevelSystem = ({
     }, [])
     
     useEffect(() => {
-      levelcheck(points);
+      levelcheck(points, setCurrentLevel, setLevelNumber);
     }, [points])
     
-   
-    function levelcheck(ep: number) {
-      if (ep > 1500) {
-        setCurrentLevel('ultraKrass');
-        setLevelNumber(4);
-      } else if (ep > 1300) {
-        setCurrentLevel('schwer');
-        setLevelNumber(3);
-      } else if (ep > 900) {
-        setCurrentLevel('mittel');
-        setLevelNumber(2);
-      } else if (ep > 500) {
-        setCurrentLevel('easy');
-        setLevelNumber(1);
-      } else {
-        setCurrentLevel('superEasy');
-        setLevelNumber(0);
-      }
-    }
-  
   return (
     <div className="level-system">
       <div>Level {levelNumber}: {currentLevel}</div>
