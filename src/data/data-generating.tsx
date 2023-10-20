@@ -1,8 +1,8 @@
-import { superEasyExercise } from "../classes/generating";
-import { EasyExerciseType, superEasyExerciseType } from "../types/generatingTypes";
+import { superEasyExercise, easyExercise } from "../classes/generating";
+import { easyExerciseType, superEasyExerciseType } from "../types/generatingTypes";
 
 export const superEasyExercises: superEasyExerciseType[] = [];
-export const EasyExercises: EasyExerciseType[] = [];
+export const easyExercises: easyExerciseType[] = [];
 
 export function generatingSuperEasyExercises() {
   for(let i = 0; i < 500; i++) {
@@ -21,19 +21,19 @@ export function generatingSuperEasyExercises() {
   console.log(superEasyExercises);
 }
 
-function generatingEasyExercises() {
+export function generatingEasyExercises() {
   for(let i = 0; i < 3000; i++) {
     let number1 = Math.floor(Math.random() * 150); 
     let number2 = Math.floor(Math.random() * 150); 
     if (i < 1500) {
       let solution = number1 + number2;
-      const exercise = new superEasyExercise(number1, number2, '+', solution);
-      superEasyExercises.push(exercise);
+      const exercise = new easyExercise(number1, number2, '+', solution);
+      easyExercises.push(exercise);
     } else {
       let solution = number1 - number2;
-      const exercise = new superEasyExercise(number1, number2, '-', solution);
-      superEasyExercises.push(exercise);
+      const exercise = new easyExercise(number1, number2, '-', solution);
+      easyExercises.push(exercise);
     }
   }
-  console.log(superEasyExercises);
+  console.log(easyExercises);
 }

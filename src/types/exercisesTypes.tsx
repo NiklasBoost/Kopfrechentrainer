@@ -5,4 +5,5 @@ export interface ExercisesTypes {
   setPointsWin: React.Dispatch<React.SetStateAction<number>>;
   pointsLose: number;
   setPointsLose: React.Dispatch<React.SetStateAction<number>>;
+  currentLevel: string;
 }

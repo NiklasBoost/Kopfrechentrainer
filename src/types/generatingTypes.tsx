@@ -8,7 +8,7 @@ export interface superEasyExerciseType {
   level: string;
 }
 
-export interface EasyExerciseType {
+export interface easyExerciseType {
   numbers: {
     firstNumber: number;
     secondNumber: number;

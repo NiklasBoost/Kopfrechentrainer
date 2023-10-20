@@ -1,4 +1,4 @@
-import { superEasyExercises } from "../data/data-generating";
+import { easyExerciseType, superEasyExerciseType } from "../types/generatingTypes";
 import { mathEarndedPoints, stopInterval } from "./earnedPoints";
 import { addPoints, removePoints } from "./pointsChanges";
 
@@ -6,10 +6,14 @@ export function compareWithSolution(
   wState: React.Dispatch<React.SetStateAction<number>>,
   lState: React.Dispatch<React.SetStateAction<number>>,
   state: React.Dispatch<React.SetStateAction<number>>,
+  cArray: () => (superEasyExerciseType | easyExerciseType)[],
+
   input: string,
   index: number
 ) {
-  const solution = superEasyExercises[index].solution;
+  const array = cArray();
+  
+  const solution = array[index].solution;
 
   console.log(index);
   stopInterval();
@@ -24,4 +28,5 @@ export function compareWithSolution(
 
     return false;
   }
+
 }

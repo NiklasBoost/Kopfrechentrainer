@@ -19,7 +19,7 @@ export class superEasyExercise {
   }
 };
 
-class EasyExercises {
+export class easyExercise {
   numbers: {
     firstNumber: number;
     secondNumber: number;

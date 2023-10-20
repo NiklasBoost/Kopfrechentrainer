@@ -7,9 +7,10 @@ const LevelSystem = ({
   points, 
   setPoints,
   pointsWin, 
-  pointsLose }: LevelSystemTypes) => {
+  pointsLose,
+  currentLevel,
+  setCurrentLevel }: LevelSystemTypes) => {
  
-    const [currentLevel, setCurrentLevel] = useState('superEasy');
     const [levelNumber, setLevelNumber] = useState(0);
 
 

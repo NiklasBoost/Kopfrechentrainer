@@ -6,4 +6,7 @@ export interface LevelSystemTypes {
   setPointsWin: React.Dispatch<React.SetStateAction<number>>;
   pointsLose: number;
   setPointsLose: React.Dispatch<React.SetStateAction<number>>;
+
+  currentLevel: string;
+  setCurrentLevel: React.Dispatch<React.SetStateAction<string>>;
 }

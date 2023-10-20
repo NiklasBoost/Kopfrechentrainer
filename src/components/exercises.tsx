@@ -2,47 +2,67 @@ import { useState, useEffect } from "react";
 import {
   superEasyExercises,
   generatingSuperEasyExercises,
+  easyExercises,
+  generatingEasyExercises
 } from "../data/data-generating";
+import { easyExerciseType, superEasyExerciseType } from "../types/generatingTypes";
 import { compareWithSolution } from "../utils/compareWithSolution";
 import { removePoints } from "../utils/pointsChanges";
 import { ExercisesTypes } from "../types/exercisesTypes";
 import { earnedPointsTimer } from "../utils/earnedPoints";
 
 const Exercises = ({
-  points,
   setPoints,
-  pointsWin,
-  pointsLose,
   setPointsWin,
   setPointsLose,
+  currentLevel,
 }: ExercisesTypes) => {
   const [exerciseIndex, setExerciseIndex] = useState(0);
   const [selectedExercise, setSelectedExercise] = useState("");
   const [userInput, setUserInput] = useState("");
   const [solutionFeedback, setSolutionFeedback] = useState("");
 
-  //initialize the easiest exercise at first
-  useEffect(() => {
+  const currentArray = () => {
+    if (currentLevel === 'superEasy') {
+      return superEasyExercises as superEasyExerciseType[];
+    } else if (currentLevel === 'easy') {
+      return easyExercises as easyExerciseType[];
+    }
+    return [] as (superEasyExerciseType | easyExerciseType)[];
+    // } else if (currentLevel === 'middle') {
+    //   return;
+    // } else if (currentLevel === 'hard') {
+    //   return;
+    // } 
+  }
+
+  useEffect(() => {    
     generatingSuperEasyExercises();
+    generatingEasyExercises();
+
     nextExercise();
   }, []);
 
-  function nextExercise() {
-    setExerciseIndex((prevIndex) => {
-      const newIndex = Math.round(Math.random() * superEasyExercises.length);
-      console.log(newIndex);
 
-      const selectExercise = superEasyExercises[newIndex];
-      setSelectedExercise(
-        selectExercise.numbers.firstNumber +
+  function nextExercise() {
+    const currentArrayValue = currentArray();
+    if (currentArrayValue) {
+      setExerciseIndex((prevIndex) => {
+        const newIndex = Math.round(Math.random() * currentArrayValue.length);
+        console.log(newIndex);
+  
+        const selectExercise = currentArrayValue[newIndex];
+        setSelectedExercise(
+          selectExercise.numbers.firstNumber +
           " " +
           selectExercise.operant +
           " " +
           selectExercise.numbers.secondNumber
-      );
-      earnedPointsTimer();
-      return newIndex; // Gib den neuen Index zurück
-    });
+        );
+        earnedPointsTimer();
+        return newIndex; // Gib den neuen Index zurück
+      });
+    }
   }
 
   function displaySolutionFeedback() {
@@ -50,6 +70,7 @@ const Exercises = ({
       setPointsWin,
       setPointsLose,
       setPoints,
+      currentArray,
       userInput,
       exerciseIndex
     );

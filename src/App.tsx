@@ -7,6 +7,7 @@ const App = () => {
   const [points, setPoints] = useState<number>(0);
   const [pointsWin, setPointsWin] = useState(0);
   const [pointsLose, setPointsLose] = useState(0);
+  const [currentLevel, setCurrentLevel] = useState('superEasy');
   
   useEffect(() => {
     setTimeout(() => {
@@ -30,6 +31,7 @@ const App = () => {
         pointsLose={pointsLose}
         setPointsWin={setPointsWin}
         setPointsLose={setPointsLose}
+        currentLevel={currentLevel}
       />
       <LevelSystem 
         points={points}
@@ -38,6 +40,8 @@ const App = () => {
         pointsLose={pointsLose}
         setPointsWin={setPointsWin}
         setPointsLose={setPointsLose}
+        currentLevel={currentLevel}
+        setCurrentLevel={setCurrentLevel}
       />
     </>
 
