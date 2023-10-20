@@ -27,9 +27,9 @@ export function stopInterval() {
 export function mathEarndedPoints() {
   console.log(pointsTimer);
   let yourPoints = 50;
-  if (pointsTimer > 50) {
-    yourPoints = 0;
-  }
+  // if (pointsTimer > 50) {
+  //   yourPoints = 0;
+  // }
   yourPoints = yourPoints - pointsTimer;
   console.log('Du hast dir ' + yourPoints + ' dazuverdient');
   return yourPoints;

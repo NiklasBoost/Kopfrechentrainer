@@ -1,8 +1,9 @@
-import { superEasyExercise, easyExercise } from "../classes/generating";
-import { easyExerciseType, superEasyExerciseType } from "../types/generatingTypes";
+import { superEasyExercise, easyExercise, middleExercise } from "../classes/generating";
+import { easyExerciseType, middleExerciseType, superEasyExerciseType } from "../types/generatingTypes";
 
 export const superEasyExercises: superEasyExerciseType[] = [];
 export const easyExercises: easyExerciseType[] = [];
+export const middleExercises: middleExerciseType[] = [];
 
 export function generatingSuperEasyExercises() {
   for(let i = 0; i < 500; i++) {
@@ -36,4 +37,30 @@ export function generatingEasyExercises() {
     }
   }
   console.log(easyExercises);
+}
+
+export function generatingMiddleExercises() {
+  for(let i = 0; i < 4000; i++) {
+    let number1 = Math.floor(Math.random() * 500); 
+    let number2 = Math.floor(Math.random() * 500); 
+    let number3 = Math.floor(Math.random() * 500);
+    if (i < 1000) {
+      let solution = number1 + number2 + number3;
+      const exercise = new middleExercise(number1, number2, number3, '+', '+', solution);
+      middleExercises.push(exercise);
+    } else if (i < 2000) {
+      let solution = number1 + number2 - number3;
+      const exercise = new middleExercise(number1, number2, number3, '+', '-', solution);
+      middleExercises.push(exercise);
+    } else if (i < 3000) {
+      let solution = number1 - number2 + number3;
+      const exercise = new middleExercise(number1, number2, number3, '-', '+', solution);
+      middleExercises.push(exercise);
+    } else {
+      let solution = number1 - number2 - number3;
+      const exercise = new middleExercise(number1, number2, number3, '-', '-', solution);
+      middleExercises.push(exercise);
+    }
+  }
+  console.log(middleExercises);
 }
