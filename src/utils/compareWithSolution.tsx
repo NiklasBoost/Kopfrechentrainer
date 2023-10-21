@@ -1,4 +1,4 @@
-import { easyExerciseType, middleExerciseType, superEasyExerciseType } from "../types/generatingTypes";
+import { easyExerciseType, hardExerciseType, middleExerciseType, superEasyExerciseType } from "../types/generatingTypes";
 import { mathEarndedPoints, stopInterval } from "./earnedPoints";
 import { addPoints, removePoints } from "./pointsChanges";
 
@@ -6,7 +6,7 @@ export function compareWithSolution(
   wState: React.Dispatch<React.SetStateAction<number>>,
   lState: React.Dispatch<React.SetStateAction<number>>,
   state: React.Dispatch<React.SetStateAction<number>>,
-  cArray: () => (superEasyExerciseType | easyExerciseType | middleExerciseType)[],
+  cArray: () => (superEasyExerciseType | easyExerciseType | middleExerciseType | hardExerciseType)[],
 
   input: string,
   index: number

@@ -5,9 +5,11 @@ import {
   easyExercises,
   generatingEasyExercises,
   middleExercises,
-  generatingMiddleExercises
+  generatingMiddleExercises,
+  hardExercises,
+  generatingHardExercises
 } from "../data/data-generating";
-import { easyExerciseType, middleExerciseType, superEasyExerciseType } from "../types/generatingTypes";
+import { easyExerciseType, hardExerciseType, middleExerciseType, superEasyExerciseType } from "../types/generatingTypes";
 import { compareWithSolution } from "../utils/compareWithSolution";
 import { removePoints } from "../utils/pointsChanges";
 import { ExercisesTypes } from "../types/exercisesTypes";
@@ -31,17 +33,17 @@ const Exercises = ({
       return easyExercises as easyExerciseType[];
     } else if (currentLevel === 'middle') {
       return middleExercises as middleExerciseType[];
-    }
-    return [] as (superEasyExerciseType | easyExerciseType | middleExerciseType)[];
-    // } else if (currentLevel === 'hard') {
-    //   return;
-    // } 
+    } else if (currentLevel === 'hard') {
+      return hardExercises as hardExerciseType[];
+    } 
+    return [] as (superEasyExerciseType | easyExerciseType | middleExerciseType | hardExerciseType)[];
   }
 
   useEffect(() => {    
     generatingSuperEasyExercises();
     generatingEasyExercises();
     generatingMiddleExercises();
+    generatingHardExercises();
 
     nextExercise();
   }, []);
@@ -57,9 +59,30 @@ const Exercises = ({
         const selectExercise = currentArrayValue[newIndex];
         console.log(currentLevel);
         if (currentLevel === 'easy' || currentLevel === 'superEasy') {
-          setSelectedExercise(selectExercise.numbers.firstNumber + " " + selectExercise.operant + " " + selectExercise.numbers.secondNumber);
+          setSelectedExercise(
+            selectExercise.numbers.firstNumber + " " + 
+            selectExercise.operant + " " + 
+            selectExercise.numbers.secondNumber
+          );
         } else if (currentLevel === 'middle') {
-          setSelectedExercise(selectExercise.numbers.firstNumber + " " + selectExercise.operants.firstOperant + " " + selectExercise.numbers.secondNumber + " " + selectExercise.operants.secondOperant + " " + selectExercise.numbers.thirdNumber);
+          setSelectedExercise(
+            selectExercise.numbers.firstNumber + " " + 
+            selectExercise.operants.firstOperant + " " + 
+            selectExercise.numbers.secondNumber + " " + 
+            selectExercise.operants.secondOperant + " " + 
+            selectExercise.numbers.thirdNumber
+          );
+        } else if (currentLevel === 'hard') {
+          setSelectedExercise(
+            selectExercise.numbers.firstNumber + " " + 
+            selectExercise.operants.firstOperant + " " + 
+            selectExercise.numbers.secondNumber + " " + 
+            selectExercise.operants.secondOperant + " " + 
+            selectExercise.numbers.thirdNumber + " " +
+            selectExercise.operants.thirdOperant + " " +
+            selectExercise.numbers.fourthNumber            
+          );
+
         }
         earnedPointsTimer();
         return newIndex; // Gib den neuen Index zurück

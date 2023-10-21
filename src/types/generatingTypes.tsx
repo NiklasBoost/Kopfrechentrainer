@@ -31,3 +31,19 @@ export interface middleExerciseType {
   solution: number;
   level: string;
 }
+
+export interface hardExerciseType {
+  numbers: {
+    firstNumber: number;
+    secondNumber: number;
+    thirdNumber: number;
+    fourthNumber: number;
+  };
+  operants: {
+    firstOperant: string;
+    secondOperant: string;
+    thirdOperant: string;
+  };
+  solution: number;
+  level: string;
+}

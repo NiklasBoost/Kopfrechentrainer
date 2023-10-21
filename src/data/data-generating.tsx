@@ -1,9 +1,10 @@
-import { superEasyExercise, easyExercise, middleExercise } from "../classes/generating";
-import { easyExerciseType, middleExerciseType, superEasyExerciseType } from "../types/generatingTypes";
+import { superEasyExercise, easyExercise, middleExercise, hardExercise } from "../classes/generating";
+import { easyExerciseType, hardExerciseType, middleExerciseType, superEasyExerciseType } from "../types/generatingTypes";
 
 export const superEasyExercises: superEasyExerciseType[] = [];
 export const easyExercises: easyExerciseType[] = [];
 export const middleExercises: middleExerciseType[] = [];
+export const hardExercises: hardExerciseType[] = [];
 
 export function generatingSuperEasyExercises() {
   for(let i = 0; i < 500; i++) {
@@ -63,4 +64,48 @@ export function generatingMiddleExercises() {
     }
   }
   console.log(middleExercises);
+}
+
+export function generatingHardExercises() {
+  for(let i = 0; i < 8000; i++) {
+    let number1 = Math.floor(Math.random() * 1000); 
+    let number2 = Math.floor(Math.random() * 1000); 
+    let number3 = Math.floor(Math.random() * 1000);
+    let number4 = Math.floor(Math.random() * 1000)
+    if (i < 1000) {
+      let solution = number1 + number2 + number3 + number4;
+      const exercise = new hardExercise(number1, number2, number3, number4, '+', '+', '+', solution);
+      hardExercises.push(exercise);
+    } else if (i < 2000) {
+      let solution = number1 + number2 + number3 - number4;
+      const exercise = new hardExercise(number1, number2, number3, number4, '+', '+', '-', solution);
+      hardExercises.push(exercise);
+    } else if (i < 3000) {
+      let solution = number1 - number2 - number3 + number4;
+      const exercise = new hardExercise(number1, number2, number3, number4, '-', '-', '+', solution);
+      hardExercises.push(exercise);
+    } else if (i < 4000) {
+      let solution = number1 + number2 - number3 + number4;
+      const exercise = new hardExercise(number1, number2, number3, number4, '+', '-', '+', solution);
+      hardExercises.push(exercise);
+    } else if (i < 5000) {
+      let solution = number1 - number2 + number3 - number4;
+      const exercise = new hardExercise(number1, number2, number3, number4, '-', '+', '-', solution);
+      hardExercises.push(exercise);
+    } else if (i < 6000) {
+      let solution = number1 - number2 + number3 + number4;
+      const exercise = new hardExercise(number1, number2, number3, number4, '-', '+', '+', solution);
+      hardExercises.push(exercise);
+    } else if (i < 7000) {
+      let solution = number1 + number2 - number3 - number4;
+      const exercise = new hardExercise(number1, number2, number3, number4, '+', '-', '-', solution);
+      hardExercises.push(exercise);
+    } else {
+      let solution = number1 - number2 - number3 - number4;
+      const exercise = new hardExercise(number1, number2, number3, number4, '-', '-', '-', solution);
+      hardExercises.push(exercise);
+    }
+
+  }
+  console.log(hardExercises);
 }

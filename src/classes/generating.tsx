@@ -66,3 +66,35 @@ export class middleExercise {
     this.level = 'middle';
   }
 }
+
+export class hardExercise {
+  numbers: {
+    firstNumber: number;
+    secondNumber: number;
+    thirdNumber: number;
+    fourthNumber: number;
+  };
+  operants: {
+    firstOperant: string;
+    secondOperant: string;
+    thirdOperant: string;
+  };
+  solution: number;
+  level: string;
+
+  constructor(firstNumber: number, secondNumber: number, thirdNumber: number, fourthNumber: number, firstOperant: string, secondOperant: string, thirdOperant: string, solution: number) {
+    this.numbers = {
+      firstNumber,
+      secondNumber,
+      thirdNumber,
+      fourthNumber,
+    };
+    this.operants = {
+      firstOperant,
+      secondOperant,
+      thirdOperant,
+    };
+    this.solution = solution;
+    this.level = 'hard';
+  }
+}
