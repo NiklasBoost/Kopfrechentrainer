@@ -102,15 +102,15 @@ const Exercises = ({
 
     if (rightOrWrong) {
       setSolutionFeedback(
-        `Yeah, ${userInput} is right your hell good motherfucker!`
+        `Yeah, ${userInput} is right!`
       );
     } else {
-      setSolutionFeedback(`Oh no, ${userInput} is WRONG; you dumbass idiot!`);
+      setSolutionFeedback(`Oh no, ${userInput} is WRONG! Try again!`);
     }
 
     setTimeout(() => {
       setSolutionFeedback("");
-    }, 3000);
+    }, 1000);
   }
 
   function handleInputChange(e: React.ChangeEvent<HTMLInputElement>) {
@@ -131,14 +131,21 @@ const Exercises = ({
 
   return (
     <>
-      <div>{selectedExercise}</div>
+      {solutionFeedback ? (
+        <div className="h1">{solutionFeedback}</div>
+        ):(
+        <div className="h1">{selectedExercise}</div>
+      )}
       <input
-        placeholder="Ergebnis"
+        placeholder="Deine Lösung (ENTER zum bestätigen, n zum überspringen)"
         value={userInput}
         onChange={handleInputChange}
         onKeyDown={handleKeyDown}
+        className="form-control"
       />
       <button
+        type="button"
+        className="btn btn-primary mt-1"
         onClick={() => {
           displaySolutionFeedback();
           setUserInput("");
@@ -148,6 +155,8 @@ const Exercises = ({
         Eingabe bestätigen
       </button>
       <button
+        type="button"
+        className="btn btn-secondary mt-1 ms-1"
         onClick={() => {
           nextExercise();
           removePoints(setPointsLose, setPoints, 30);
@@ -155,7 +164,6 @@ const Exercises = ({
       >
         Aufgabe überspringen
       </button>
-      <div>{solutionFeedback}</div>
     </>
   );
 };

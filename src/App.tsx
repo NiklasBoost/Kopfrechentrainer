@@ -18,31 +18,46 @@ const App = () => {
 
   return (
     <>
-      <h1>
-        Willkommen!
-      </h1>
-      <h3>
-        Ich bin dein kleines Programm, um deine Kopfrechenskills zu trainieren
-      </h3>
-      <Exercises 
-        points={points}
-        setPoints={setPoints}
-        pointsWin={pointsWin}
-        pointsLose={pointsLose}
-        setPointsWin={setPointsWin}
-        setPointsLose={setPointsLose}
-        currentLevel={currentLevel}
-      />
-      <LevelSystem 
-        points={points}
-        setPoints={setPoints}
-        pointsWin={pointsWin}
-        pointsLose={pointsLose}
-        setPointsWin={setPointsWin}
-        setPointsLose={setPointsLose}
-        currentLevel={currentLevel}
-        setCurrentLevel={setCurrentLevel}
-      />
+      <div className="row">
+        <div className="col"></div>
+        <div className="col"></div>
+        <div className="col"></div>
+        <div className="col"></div>
+        <div className="col"></div>
+        <div className="col"></div>
+        <div className="col"></div>
+        <div className="col"></div>
+        <div className="col mt-2">
+        <LevelSystem 
+          points={points}
+          setPoints={setPoints}
+          pointsWin={pointsWin}
+          pointsLose={pointsLose}
+          setPointsWin={setPointsWin}
+          setPointsLose={setPointsLose}
+          currentLevel={currentLevel}
+          setCurrentLevel={setCurrentLevel}
+        />  
+        </div>
+      </div>
+      <div className="row mt-5"></div>
+      <div className="row mt-5"></div>
+      <div className="row mt-5"></div>
+      <div className="row mt-4">
+        <div className="col"></div>
+        <div className="col">
+          <Exercises 
+            points={points}
+            setPoints={setPoints}
+            pointsWin={pointsWin}
+            pointsLose={pointsLose}
+            setPointsWin={setPointsWin}
+            setPointsLose={setPointsLose}
+            currentLevel={currentLevel}
+          />
+        </div>
+        <div className="col"></div>
+      </div>
     </>
 
   )
