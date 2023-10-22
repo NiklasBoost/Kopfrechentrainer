@@ -27,7 +27,7 @@ const App = () => {
         <div className="col"></div>
         <div className="col"></div>
         <div className="col"></div>
-        <div className="col mt-2">
+        <div className="col mt-2 me-1">
         <LevelSystem 
           points={points}
           setPoints={setPoints}
