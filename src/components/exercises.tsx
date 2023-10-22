@@ -145,7 +145,7 @@ const Exercises = ({
       />
       <button
         type="button"
-        className="btn btn-primary mt-1"
+        className="btn btn-primary mt-2"
         onClick={() => {
           displaySolutionFeedback();
           setUserInput("");
@@ -156,7 +156,7 @@ const Exercises = ({
       </button>
       <button
         type="button"
-        className="btn btn-secondary mt-1 ms-1"
+        className="btn btn-secondary mt-2 ms-1"
         onClick={() => {
           nextExercise();
           removePoints(setPointsLose, setPoints, 30);
