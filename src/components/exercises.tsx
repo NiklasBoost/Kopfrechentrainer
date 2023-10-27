@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import {
   superEasyExercises,
   generatingSuperEasyExercises,
@@ -21,6 +21,9 @@ const Exercises = ({
   setPointsLose,
   currentLevel,
 }: ExercisesTypes) => {
+
+  const inputFocusRef = useRef<HTMLInputElement | null>(null);
+
   const [exerciseIndex, setExerciseIndex] = useState(0);
   const [selectedExercise, setSelectedExercise] = useState("");
   const [userInput, setUserInput] = useState("");
@@ -46,7 +49,16 @@ const Exercises = ({
     generatingHardExercises();
 
     nextExercise();
+    if(inputFocusRef.current) {
+      inputFocusRef.current.focus();
+    }
   }, []);
+
+  useEffect(() => {
+    if(inputFocusRef.current) {
+      inputFocusRef.current.focus();
+    }
+  }, [exerciseIndex])
 
 
   function nextExercise() {
@@ -138,6 +150,7 @@ const Exercises = ({
         <div className="h1">{selectedExercise}</div>
       )}
       <input
+        ref={inputFocusRef}
         placeholder="Deine Lösung (ENTER zum bestätigen, n zum überspringen)"
         value={userInput}
         onChange={handleInputChange}
