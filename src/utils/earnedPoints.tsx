@@ -1,6 +1,7 @@
 let pointsTimer = 0;
 let earnedPointsInterval: ReturnType<typeof setTimeout> | undefined;
 export const earnedPointsTimer = () => {
+  stopInterval();
   pointsTimer = 0;
   earnedPointsInterval = setInterval(() => {
     pointsTimer++;

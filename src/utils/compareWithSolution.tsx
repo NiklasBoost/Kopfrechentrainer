@@ -1,5 +1,5 @@
 import { easyExerciseType, hardExerciseType, middleExerciseType, superEasyExerciseType } from "../types/generatingTypes";
-import { mathEarndedPoints, stopInterval } from "./earnedPoints";
+import { mathEarndedPoints } from "./earnedPoints";
 import { addPoints, removePoints } from "./pointsChanges";
 
 export function compareWithSolution(
@@ -15,8 +15,7 @@ export function compareWithSolution(
   
   const solution = array[index].solution;
 
-  console.log(index);
-  stopInterval();
+  // console.log(index);
 
   if (parseInt(input) === solution) {
     console.log(`Yeah, that's right!`);
