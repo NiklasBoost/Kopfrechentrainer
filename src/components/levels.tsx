@@ -37,10 +37,10 @@ const LevelSystem = ({
     
   return (
     <>
-      <div className="level-system">
-        <div>Level {levelNumber}: {currentLevel}</div>
-        <div>Your Points: {Math.round(points)}</div>
-        <div className="progress" role="progressbar" aria-label="Points" aria-valuenow={ points } aria-valuemin={ 0 } aria-valuemax={ maxPoints }>
+      <div className="level-system me-3">
+        <h5>Level {levelNumber}: {currentLevel}</h5>
+        <div className="mt-1">Deine Punkte: {Math.round(points)}</div>
+        <div className="progress mt-1" role="progressbar" aria-label="Points" aria-valuenow={ points } aria-valuemin={ 0 } aria-valuemax={ maxPoints }>
           <div className="progress-bar" style={{ width: `${(100 * points) / maxPoints}%` }}>{Math.round(points)}/{maxPoints}</div>
         </div>
 
@@ -49,8 +49,8 @@ const LevelSystem = ({
             <div className="invisible">Platzhalter</div>
           ):(
             <>
-              {pointsWin != 0 && <div>Points Win: {pointsWin}</div>}
-              {pointsLose != 0 && <div>Points Lose: {pointsLose}</div>}
+              {pointsWin != 0 && <div style= {{fontStyle: "italic"}}>Punkte gewonnen: {pointsWin}</div>}
+              {pointsLose != 0 && <div style= {{fontStyle: "italic"}}>Punkte verloren: {pointsLose}</div>}
             </>
           )}
         </div>
