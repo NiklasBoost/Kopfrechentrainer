@@ -126,6 +126,7 @@ const Exercises = ({
     } else if (e.key === "n") {
       e.preventDefault();
       nextExercise();
+      removePoints(setPointsLose, setPoints, 30);
     }
   }
 
