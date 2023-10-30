@@ -76,6 +76,7 @@ const Exercises = ({
             selectExercise.operant + " " + 
             selectExercise.numbers.secondNumber
           );
+          console.log(selectExercise.solution);
         } else if (currentLevel === 'middle') {
           setSelectedExercise(
             selectExercise.numbers.firstNumber + " " + 
@@ -84,6 +85,7 @@ const Exercises = ({
             selectExercise.operants.secondOperant + " " + 
             selectExercise.numbers.thirdNumber
           );
+          console.log(selectExercise.solution);
         } else if (currentLevel === 'hard') {
           setSelectedExercise(
             selectExercise.numbers.firstNumber + " " + 
@@ -94,7 +96,7 @@ const Exercises = ({
             selectExercise.operants.thirdOperant + " " +
             selectExercise.numbers.fourthNumber            
           );
-
+          console.log(selectExercise.solution);
         }
         earnedPointsTimer();
         return newIndex; // Gib den neuen Index zurück
