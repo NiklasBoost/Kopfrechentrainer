@@ -6,4 +6,5 @@ export interface ExercisesTypes {
   pointsLose: number;
   setPointsLose: React.Dispatch<React.SetStateAction<number>>;
   currentLevel: string;
+  isPaused: boolean, 
 }

@@ -9,4 +9,5 @@ export interface LevelSystemTypes {
 
   currentLevel: string;
   setCurrentLevel: React.Dispatch<React.SetStateAction<string>>;
+  isPaused: boolean, 
 }

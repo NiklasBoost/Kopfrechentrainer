@@ -1,6 +1,6 @@
+import { BreakButtonTypes } from "../types/breakbuttonTypes"
 
-
-export const BreakButton = ({isPaused, setIsPaused}) => {
+export const BreakButton = ({isPaused, setIsPaused}: BreakButtonTypes) => {
   
 
   return (
