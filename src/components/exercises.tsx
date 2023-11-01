@@ -20,7 +20,7 @@ const Exercises = ({
   setPointsWin,
   setPointsLose,
   currentLevel,
-}: ExercisesTypes) => {
+  isPaused }: ExercisesTypes) => {
 
   const inputFocusRef = useRef<HTMLInputElement | null>(null);
 
@@ -133,22 +133,26 @@ const Exercises = ({
   }
 
   function handleKeyDown(e: React.KeyboardEvent<HTMLInputElement>) {
-    if (e.key === "Enter") {
-      displaySolutionFeedback();
-      setUserInput("");
-      nextExercise();
-    } else if (e.key === "n") {
-      e.preventDefault();
-      nextExercise();
-      removePoints(setPointsLose, setPoints, 30);
+    if(!isPaused) {
+      if (e.key === "Enter") {
+        displaySolutionFeedback();
+        setUserInput("");
+        nextExercise();
+      } else if (e.key === "n") {
+        e.preventDefault();
+        nextExercise();
+        removePoints(setPointsLose, setPoints, 30);
+      }
     }
   }
 
   return (
     <>
-      {solutionFeedback ? (
+      {isPaused ? (
+      <div className="h1">Pause</div>
+      ) : solutionFeedback ? (
         <div className="h1">{solutionFeedback}</div>
-        ):(
+      ) : (
         <div className="h1">{selectedExercise}</div>
       )}
       <input
@@ -163,9 +167,11 @@ const Exercises = ({
         type="button"
         className="btn btn-primary mt-2"
         onClick={() => {
-          displaySolutionFeedback();
-          setUserInput("");
-          nextExercise();
+          if(!isPaused) {
+            displaySolutionFeedback();
+            setUserInput("");
+            nextExercise();
+          }
         }}
       >
         Eingabe bestätigen
@@ -174,8 +180,10 @@ const Exercises = ({
         type="button"
         className="btn btn-secondary mt-2 ms-1"
         onClick={() => {
-          nextExercise();
-          removePoints(setPointsLose, setPoints, 30);
+          if(!isPaused) {
+            nextExercise();
+            removePoints(setPointsLose, setPoints, 30);
+          }
         }}
       >
         Aufgabe überspringen

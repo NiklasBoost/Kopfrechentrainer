@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { pointInterval } from "../utils/earnedPoints";
+import { pointInterval, stopInterval } from "../utils/earnedPoints";
 import { LevelSystemTypes } from "../types/levelsTypes";
 import { levelcheck } from "../utils/levelcheck";
 
@@ -10,16 +10,21 @@ const LevelSystem = ({
   pointsWin, 
   pointsLose,
   currentLevel,
-  setCurrentLevel }: LevelSystemTypes) => {
+  setCurrentLevel,
+  isPaused }: LevelSystemTypes) => {
  
     const [levelNumber, setLevelNumber] = useState(0);
     const [maxPoints, setMaxPoints] = useState(0);
 
 
     useEffect(() => {
-      console.log('useEffect fürs Intervall');
-      pointInterval(setPoints);
-    }, [])
+      if(!isPaused) {
+        console.log('useEffect fürs Intervall');
+        pointInterval(setPoints);
+      } else {
+        stopInterval('pointloseInterval')
+      }
+    }, [isPaused])
     
     useEffect(() => {
       levelcheck(points, setCurrentLevel, setLevelNumber);

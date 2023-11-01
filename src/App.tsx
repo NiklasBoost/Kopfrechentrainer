@@ -1,3 +1,4 @@
+import { BreakButton } from "./components/breakbutton";
 import Exercises from "./components/exercises"
 import LevelSystem from "./components/levels"
 import { useState, useEffect } from "react";
@@ -8,6 +9,7 @@ const App = () => {
   const [pointsWin, setPointsWin] = useState(0);
   const [pointsLose, setPointsLose] = useState(0);
   const [currentLevel, setCurrentLevel] = useState('superEasy');
+  const [isPaused, setIsPaused] = useState(false);
   
   useEffect(() => {
     setTimeout(() => {
@@ -19,7 +21,12 @@ const App = () => {
   return (
     <>
       <div className="row">
-        <div className="col"></div>
+        <div className="col mt-2 ms-1">
+          <BreakButton 
+            isPaused={isPaused}
+            setIsPaused={setIsPaused}
+          />
+        </div>
         <div className="col"></div>
         <div className="col"></div>
         <div className="col"></div>
@@ -28,16 +35,17 @@ const App = () => {
         <div className="col"></div>
         <div className="col"></div>
         <div className="col mt-2 me-1">
-        <LevelSystem 
-          points={points}
-          setPoints={setPoints}
-          pointsWin={pointsWin}
-          pointsLose={pointsLose}
-          setPointsWin={setPointsWin}
-          setPointsLose={setPointsLose}
-          currentLevel={currentLevel}
-          setCurrentLevel={setCurrentLevel}
-        />  
+          <LevelSystem 
+            points={points}
+            setPoints={setPoints}
+            pointsWin={pointsWin}
+            pointsLose={pointsLose}
+            setPointsWin={setPointsWin}
+            setPointsLose={setPointsLose}
+            currentLevel={currentLevel}
+            setCurrentLevel={setCurrentLevel}
+            isPaused={isPaused}
+          />  
         </div>
       </div>
       <div className="row mt-5"></div>
@@ -54,6 +62,7 @@ const App = () => {
             setPointsWin={setPointsWin}
             setPointsLose={setPointsLose}
             currentLevel={currentLevel}
+            isPaused={isPaused}
           />
         </div>
         <div className="col"></div>
