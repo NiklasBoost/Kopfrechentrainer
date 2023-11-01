@@ -33,7 +33,11 @@ Die Verwendung des Kopfrechentrainers ist intuitiv und einfach. Derzeit gibt es 
 
 ## Abhängigkeiten
 
-Die genauen Abhängigkeiten des Projekts müssen noch dokumentiert werden und werden zu einem späteren Zeitpunkt ergänzt.
+Die folgenden Abhängigkeiten werden von dieser Anwendung verwendet:
+
+- **@babel/traverse**: Version 7.23.2
+- **react**: Version 18.2.0
+- **react-dom**: Version 18.2.0
 
 ## Mitwirkung
 
