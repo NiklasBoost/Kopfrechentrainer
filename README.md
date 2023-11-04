@@ -50,7 +50,7 @@ Das Projekt wurde von Niklas Loos entwickelt, verwaltet und betreut.
 
 ## Bekannte Probleme und Einschränkungen
 
-Ein bekannter Fehler betrifft gelegentlich das Finden der Lösung für Aufgaben. Manchmal wird die Lösung nicht gefunden, was zu einer Fehlermeldung in der Konsole führt und den Spielfluss unterbricht. Derzeit kann die Aufgabe einfach übersprungen werden, während an einer Lösung gearbeitet wird.
+Zu diesem Zeitpunkt sind keine bekannten Probleme oder Einschränkungen dokumentiert. Das Projekt ist jedoch im Entwicklungsstadium, und es können in Zukunft Probleme auftreten, die in diesem Abschnitt dokumentiert werden.
 
 ## Versionshistorie
 
