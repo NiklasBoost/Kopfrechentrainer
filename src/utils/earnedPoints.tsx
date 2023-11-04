@@ -14,7 +14,7 @@ export function pointInterval (sState: React.Dispatch<React.SetStateAction<numbe
   console.log('Interval wurde gestartet');
   return pointloseInterval = setInterval(() => {
     sState((prevState: number) => {
-      console.log(prevState);
+      // console.log(prevState);
       return prevState - 0.1;
     });
 

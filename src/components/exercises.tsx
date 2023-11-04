@@ -60,6 +60,10 @@ const Exercises = ({
     }
   }, [exerciseIndex])
 
+  useEffect(() => {
+    nextExercise();
+  }, [currentLevel])
+
 
   function nextExercise() {
     const currentArrayValue = currentArray();
