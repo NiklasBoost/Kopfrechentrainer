@@ -15,6 +15,7 @@ const LevelSystem = ({
  
     const [levelNumber, setLevelNumber] = useState(0);
     const [maxPoints, setMaxPoints] = useState(0);
+    const [lastMaxPoints, setLastMaxPoints] = useState(0);
 
 
     useEffect(() => {
@@ -32,12 +33,16 @@ const LevelSystem = ({
 
     useEffect(() => {
       if(levelNumber === 0) {
+        setLastMaxPoints(0);
         setMaxPoints(300);
       } else if(levelNumber === 1) {
+        setLastMaxPoints(300);
         setMaxPoints(600);
       } else if(levelNumber === 2) {
+        setLastMaxPoints(600);
         setMaxPoints(900);
       } else if(levelNumber === 3) {
+        setLastMaxPoints(900);
         setMaxPoints(1200);
       }
     }, [levelNumber])
@@ -51,8 +56,8 @@ const LevelSystem = ({
           <h5>Level {levelNumber}: {currentLevel}</h5>
         )}
         <div className="mt-1">Deine Punkte: {Math.round(points)}</div>
-        <div className="progress mt-1" role="progressbar" aria-label="Points" aria-valuenow={ points } aria-valuemin={ 0 } aria-valuemax={ maxPoints }>
-          <div className="progress-bar" style={{ width: `${(100 * points) / maxPoints}%` }}>{Math.round(points)}/{maxPoints}</div>
+        <div className="progress mt-1" role="progressbar" aria-label="Points" aria-valuenow={ points - lastMaxPoints } aria-valuemax={ maxPoints - lastMaxPoints }>
+          <div className="progress-bar" style={{ width: `${(points - lastMaxPoints) * 100 / (maxPoints - lastMaxPoints)}%` }}>{Math.round(points)}/{maxPoints}</div>
         </div>
 
         <div>
