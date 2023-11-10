@@ -11,9 +11,10 @@ const LevelSystem = ({
   pointsLose,
   currentLevel,
   setCurrentLevel,
+  levelNumber,
+  setLevelNumber,
   isPaused }: LevelSystemTypes) => {
  
-    const [levelNumber, setLevelNumber] = useState(0);
     const [maxPoints, setMaxPoints] = useState(0);
     const [lastMaxPoints, setLastMaxPoints] = useState(0);
 
@@ -28,7 +29,7 @@ const LevelSystem = ({
     }, [isPaused])
     
     useEffect(() => {
-      levelcheck(points, setCurrentLevel, setLevelNumber);
+      levelcheck(points, currentLevel, setCurrentLevel, setLevelNumber);
     }, [points])
 
     useEffect(() => {

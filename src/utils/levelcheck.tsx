@@ -1,19 +1,30 @@
 export function levelcheck(
   ep: number,
-  level: React.Dispatch<React.SetStateAction<string>>,
+  level: string,
+  setlevel: React.Dispatch<React.SetStateAction<string>>,
   levelNumber: React.Dispatch<React.SetStateAction<number>>) {
 
-  if (ep > 900) {
-    level('hard');
+  if (ep > 900 && level != 'hard') {
+   
+    setlevel('hard');
     levelNumber(3);
-  } else if (ep > 600) {
-    level('middle');
+  } 
+
+  if (ep > 600 && ep < 900 && level != 'middle') {
+  
+    setlevel('middle');
     levelNumber(2);
-  } else if (ep > 300) {
-    level('easy');
+  } 
+   
+  if (ep > 300 && ep < 600 && level != 'easy') {
+   
+    setlevel('easy');
     levelNumber(1);
-  } else {
-    level('superEasy');
+  } 
+  
+  if(ep < 300 && level != 'superEasy'){
+   
+    setlevel('superEasy');
     levelNumber(0);
   }
 }
