@@ -1,0 +1,31 @@
+@keyframes fadeInOut {
+  0%, 100% {
+    opacity: 0;
+    transform: scale(0.5);
+    
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1);
+  
+  }
+}
+
+.level-up {
+  position: fixed;
+  width: 15%;
+  height: 13%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  font-size: 35px;
+  padding: 10px;
+  color: #ffffff;
+  background-color: #0e283a;
+  border-radius: 10px;
+  animation: fadeInOut 2s ease-in-out;
+  opacity: 0;
+}
+
+.level-not {
+  display: none;
+}
