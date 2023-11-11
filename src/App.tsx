@@ -10,7 +10,7 @@ const App = () => {
   const [pointsWin, setPointsWin] = useState(0);
   const [pointsLose, setPointsLose] = useState(0);
   const [currentLevel, setCurrentLevel] = useState('superEasy');
-  const [levelNumber, setLevelNumber] = useState(0);
+  const [currentLevelNumber, setCurrentLevelNumber] = useState(0);
   const [isPaused, setIsPaused] = useState(false);
   
   useEffect(() => {
@@ -49,8 +49,8 @@ const App = () => {
             setPointsWin={setPointsWin}
             setPointsLose={setPointsLose}
             currentLevel={currentLevel}
-            levelNumber={levelNumber}
-            setLevelNumber={setLevelNumber}
+            currentLevelNumber={currentLevelNumber}
+            setCurrentLevelNumber={setCurrentLevelNumber}
             setCurrentLevel={setCurrentLevel}
             isPaused={isPaused}
           />  
@@ -63,7 +63,7 @@ const App = () => {
         <div className="col">
           <LevelUpAnimation
             currentLevel={currentLevel}
-            levelNumber={levelNumber}
+            currentLevelNumber={currentLevelNumber}
           />
         </div>
         <div className="col"></div>

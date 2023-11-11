@@ -10,7 +10,7 @@ import {
   generatingHardExercises
 } from "../data/data-generating";
 import { easyExerciseType, hardExerciseType, middleExerciseType, superEasyExerciseType } from "../types/generatingTypes";
-import { compareWithSolution } from "../utils/compareWithSolution";
+import { compareInputWithSolution } from "../utils/compareWithSolution";
 import { removePoints } from "../utils/pointsChanges";
 import { ExercisesTypes } from "../types/exercisesTypes";
 import { earnedPointsTimer } from "../utils/earnedPoints";
@@ -109,7 +109,7 @@ const Exercises = ({
   }
 
   function displaySolutionFeedback() {
-    const rightOrWrong = compareWithSolution(
+    const rightOrWrong = compareInputWithSolution(
       setPointsWin,
       setPointsLose,
       setPoints,

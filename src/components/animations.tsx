@@ -1,13 +1,13 @@
 import { useEffect, useState } from "react";
 
-const LevelUpAnimation = ({currentLevel, levelNumber}: {currentLevel: string, levelNumber: number}) => {
+const LevelUpAnimation = ({currentLevel, currentLevelNumber}: {currentLevel: string, currentLevelNumber: number}) => {
   const[activeAnimation, setActiveAnimation] = useState(false)
   const[prevLevelNumber, setprevLevelNumber] = useState(0);
 
   useEffect(() => {
     
-    if(currentLevel != 'superEasy' && levelUpCheck(levelNumber, prevLevelNumber)) {
-      setprevLevelNumber(levelNumber - 1);
+    if(currentLevel != 'superEasy' && levelUpCheck(currentLevelNumber, prevLevelNumber)) {
+      setprevLevelNumber(currentLevelNumber - 1);
       setActiveAnimation(true)
       setTimeout(() => {
         setActiveAnimation(false)

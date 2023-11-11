@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { pointInterval, stopInterval } from "../utils/earnedPoints";
+import { permanentlyLosePoints, stopInterval } from "../utils/earnedPoints";
 import { LevelSystemTypes } from "../types/levelsTypes";
 import { levelcheck } from "../utils/levelcheck";
 
@@ -11,8 +11,8 @@ const LevelSystem = ({
   pointsLose,
   currentLevel,
   setCurrentLevel,
-  levelNumber,
-  setLevelNumber,
+  currentLevelNumber,
+  setCurrentLevelNumber,
   isPaused }: LevelSystemTypes) => {
  
     const [maxPoints, setMaxPoints] = useState(0);
@@ -22,31 +22,31 @@ const LevelSystem = ({
     useEffect(() => {
       if(!isPaused) {
         console.log('useEffect fürs Intervall');
-        pointInterval(setPoints);
+        permanentlyLosePoints(setPoints);
       } else {
         stopInterval('pointloseInterval')
       }
     }, [isPaused])
     
     useEffect(() => {
-      levelcheck(points, currentLevel, setCurrentLevel, setLevelNumber);
+      levelcheck(points, currentLevel, setCurrentLevel, setCurrentLevelNumber);
     }, [points])
 
     useEffect(() => {
-      if(levelNumber === 0) {
+      if(currentLevelNumber === 0) {
         setLastMaxPoints(0);
         setMaxPoints(300);
-      } else if(levelNumber === 1) {
+      } else if(currentLevelNumber === 1) {
         setLastMaxPoints(300);
         setMaxPoints(600);
-      } else if(levelNumber === 2) {
+      } else if(currentLevelNumber === 2) {
         setLastMaxPoints(600);
         setMaxPoints(900);
-      } else if(levelNumber === 3) {
+      } else if(currentLevelNumber === 3) {
         setLastMaxPoints(900);
         setMaxPoints(1200);
       }
-    }, [levelNumber])
+    }, [currentLevelNumber])
     
   return (
     <>
@@ -54,7 +54,7 @@ const LevelSystem = ({
         { points > 1200 ? (
           <h1>DU HAST GEWONNEN!</h1>
         ):(
-          <h5>Level {levelNumber}: {currentLevel}</h5>
+          <h5>Level {currentLevelNumber}: {currentLevel}</h5>
         )}
         <div className="mt-1">Deine Punkte: {Math.round(points)}</div>
         <div className="progress mt-1" role="progressbar" aria-label="Points" aria-valuenow={ points - lastMaxPoints } aria-valuemax={ maxPoints - lastMaxPoints }>
