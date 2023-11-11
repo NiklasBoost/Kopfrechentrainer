@@ -1,16 +1,16 @@
-let pointsTimer = 0;
+let losePointsCount = 0;
 let earnedPointsInterval: ReturnType<typeof setTimeout> | undefined;
 let pointloseInterval: ReturnType<typeof setTimeout> | undefined;
 export const earnedPointsTimer = () => {
   stopInterval('earnedPointsInterval');
-  pointsTimer = 0;
+  losePointsCount = 0;
   earnedPointsInterval = setInterval(() => {
-    pointsTimer++;
+    losePointsCount++;
     // console.log(pointsTimer);
   }, 1000)
 } 
 
-export function pointInterval (sState: React.Dispatch<React.SetStateAction<number>>): number {
+export function  permanentlyLosePoints (sState: React.Dispatch<React.SetStateAction<number>>): number {
   console.log('Interval wurde gestartet');
   return pointloseInterval = setInterval(() => {
     sState((prevState: number) => {
@@ -22,7 +22,7 @@ export function pointInterval (sState: React.Dispatch<React.SetStateAction<numbe
 }
 
 
-export function stopInterval(interv) {
+export function stopInterval(interv: string) {
   if(interv === 'earnedPointsInterval') {
     if(earnedPointsInterval) {
       clearInterval(earnedPointsInterval);
@@ -37,12 +37,12 @@ export function stopInterval(interv) {
 }
 
 export function mathEarndedPoints() {
-  console.log(pointsTimer);
+  console.log(losePointsCount);
   let yourPoints = 50;
   // if (pointsTimer > 50) {
   //   yourPoints = 0;
   // }
-  yourPoints = yourPoints - pointsTimer;
+  yourPoints = yourPoints - losePointsCount;
   console.log('Du hast dir ' + yourPoints + ' dazuverdient');
   return yourPoints;
 }

@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { pointInterval, stopInterval } from "../utils/earnedPoints";
+import { permanentlyLosePoints, stopInterval } from "../utils/earnedPoints";
 import { LevelSystemTypes } from "../types/levelsTypes";
 import { levelcheck } from "../utils/levelcheck";
 
@@ -20,7 +20,7 @@ const LevelSystem = ({
     useEffect(() => {
       if(!isPaused) {
         console.log('useEffect fürs Intervall');
-        pointInterval(setPoints);
+        permanentlyLosePoints(setPoints);
       } else {
         stopInterval('pointloseInterval')
       }
