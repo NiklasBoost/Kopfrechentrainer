@@ -2,7 +2,7 @@ import { easyExerciseType, hardExerciseType, middleExerciseType, superEasyExerci
 import { mathEarndedPoints } from "./earnedPoints";
 import { addPoints, removePoints } from "./pointsChanges";
 
-export function compareWithSolution(
+export function compareInputWithSolution(
   wState: React.Dispatch<React.SetStateAction<number>>,
   lState: React.Dispatch<React.SetStateAction<number>>,
   state: React.Dispatch<React.SetStateAction<number>>,

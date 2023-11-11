@@ -13,7 +13,7 @@ const LevelSystem = ({
   setCurrentLevel,
   isPaused }: LevelSystemTypes) => {
  
-    const [levelNumber, setLevelNumber] = useState(0);
+    const [currentLevelNumber, setCurrentLevelNumber] = useState(0);
     const [maxPoints, setMaxPoints] = useState(0);
 
 
@@ -27,20 +27,20 @@ const LevelSystem = ({
     }, [isPaused])
     
     useEffect(() => {
-      levelcheck(points, setCurrentLevel, setLevelNumber);
+      levelcheck(points, setCurrentLevel, setCurrentLevelNumber);
     }, [points])
 
     useEffect(() => {
-      if(levelNumber === 0) {
+      if(currentLevelNumber === 0) {
         setMaxPoints(300);
-      } else if(levelNumber === 1) {
+      } else if(currentLevelNumber === 1) {
         setMaxPoints(600);
-      } else if(levelNumber === 2) {
+      } else if(currentLevelNumber === 2) {
         setMaxPoints(900);
-      } else if(levelNumber === 3) {
+      } else if(currentLevelNumber === 3) {
         setMaxPoints(1200);
       }
-    }, [levelNumber])
+    }, [currentLevelNumber])
     
   return (
     <>
@@ -48,7 +48,7 @@ const LevelSystem = ({
         { points > 1200 ? (
           <h1>DU HAST GEWONNEN!</h1>
         ):(
-          <h5>Level {levelNumber}: {currentLevel}</h5>
+          <h5>Level {currentLevelNumber}: {currentLevel}</h5>
         )}
         <div className="mt-1">Deine Punkte: {Math.round(points)}</div>
         <div className="progress mt-1" role="progressbar" aria-label="Points" aria-valuenow={ points } aria-valuemin={ 0 } aria-valuemax={ maxPoints }>
