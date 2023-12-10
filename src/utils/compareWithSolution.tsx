@@ -15,8 +15,6 @@ export function compareInputWithSolution(
   
   const solution = array[index].solution;
 
-  // console.log(index);
-
   if (parseInt(input) === solution) {
     console.log(`Yeah, that's right!`);
     addPoints(wState, state, mathEarndedPoints());

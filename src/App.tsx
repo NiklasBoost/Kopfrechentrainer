@@ -2,6 +2,7 @@ import { BreakButton } from "./components/breakbutton";
 import Exercises from "./components/exercises"
 import LevelSystem from "./components/levels"
 import LevelUpAnimation from "./components/animations";
+import Streaks from "./components/streaks";
 import { useState, useEffect } from "react";
 
 const App = () => {
@@ -20,9 +21,6 @@ const App = () => {
     }, 1500)
   }, [pointsWin, pointsLose]);
 
-  // useEffect(() => {
-  //   console.log(points)
-  // })
 
   return (
     <>
@@ -36,7 +34,12 @@ const App = () => {
         <div className="col"></div>
         <div className="col"></div>
         <div className="col"></div>
-        <div className="col"></div>
+        <div className="col">
+          <Streaks 
+            pointsWin={pointsWin}
+            pointsLose={pointsLose}
+          />
+        </div>
         <div className="col"></div>
         <div className="col"></div>
         <div className="col"></div>
