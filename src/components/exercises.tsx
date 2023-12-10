@@ -29,6 +29,8 @@ const Exercises = ({
   const [userInput, setUserInput] = useState("");
   const [solutionFeedback, setSolutionFeedback] = useState("");
 
+  const [skippingPoints, setSkippingPoints] = useState(1);
+
   const currentArray = () => {
     if (currentLevel === 'superEasy') {
       return superEasyExercises as superEasyExerciseType[];
@@ -186,11 +188,12 @@ const Exercises = ({
         onClick={() => {
           if(!isPaused) {
             nextExercise();
-            removePoints(setPointsLose, setPoints, 30);
+            removePoints(setPointsLose, setPoints, skippingPoints);
+            setSkippingPoints(prevState => prevState*2)
           }
         }}
       >
-        Aufgabe überspringen
+        Aufgabe überspringen ({skippingPoints})
       </button>
     </>
   );
