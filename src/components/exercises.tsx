@@ -14,6 +14,7 @@ import { compareInputWithSolution } from "../utils/compareWithSolution";
 import { removePoints } from "../utils/pointsChanges";
 import { ExercisesTypes } from "../types/exercisesTypes";
 import { earnedPointsTimer } from "../utils/earnedPoints";
+import { didRightMessages, didWrongMessages } from "../data/messages";
 
 const Exercises = ({
   setPoints,
@@ -119,13 +120,15 @@ const Exercises = ({
       userInput,
       exerciseIndex
     );
-
+    const randomIndex = Math.round(Math.random() * didRightMessages.length)
     if (rightOrWrong) {
       setSolutionFeedback(
-        `Yeah, ${userInput} is right!`
+        didRightMessages[randomIndex]
       );
     } else {
-      setSolutionFeedback(`Oh no, ${userInput} is WRONG! Try again!`);
+      setSolutionFeedback(
+        didWrongMessages[randomIndex]
+      );
     }
 
     setTimeout(() => {
