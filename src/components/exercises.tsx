@@ -150,7 +150,8 @@ const Exercises = ({
       } else if (e.key === "n") {
         e.preventDefault();
         nextExercise();
-        removePoints(setPointsLose, setPoints, 30);
+        removePoints(setPointsLose, setPoints, skippingPoints);
+        setSkippingPoints(prevState => prevState*2)
       }
     }
   }
