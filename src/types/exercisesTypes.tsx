@@ -7,4 +7,6 @@ export interface ExercisesTypes {
   setPointsLose: React.Dispatch<React.SetStateAction<number>>;
   currentLevel: string;
   isPaused: boolean, 
+  isWinner: boolean,
+  playAgain: () => void;
 }
