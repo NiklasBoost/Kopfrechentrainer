@@ -13,23 +13,31 @@ const LevelSystem = ({
   setCurrentLevel,
   currentLevelNumber,
   setCurrentLevelNumber,
-  isPaused }: LevelSystemTypes) => {
+  isPaused,
+  isWinner,
+  setIsWinner }: LevelSystemTypes) => {
  
     const [maxPoints, setMaxPoints] = useState(0);
     const [lastMaxPoints, setLastMaxPoints] = useState(0);
 
-
+ 
     useEffect(() => {
-      if(!isPaused) {
+      if(!isPaused && !isWinner) {
         console.log('useEffect fürs Intervall');
         permanentlyLosePoints(setPoints);
       } else {
         stopInterval('pointloseInterval')
       }
-    }, [isPaused])
+    }, [isPaused, isWinner])
     
     useEffect(() => {
       levelcheck(points, currentLevel, setCurrentLevel, setCurrentLevelNumber);
+      
+      if(points > 1200) {
+        setIsWinner(true)
+      } else if(isWinner && points < 1200) {
+        setIsWinner(false)
+      }
     }, [points])
 
     useEffect(() => {

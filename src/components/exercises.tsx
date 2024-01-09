@@ -21,7 +21,9 @@ const Exercises = ({
   setPointsWin,
   setPointsLose,
   currentLevel,
-  isPaused }: ExercisesTypes) => {
+  isPaused,
+  isWinner,
+  playAgain }: ExercisesTypes) => {
 
   const inputFocusRef = useRef<HTMLInputElement | null>(null);
 
@@ -142,7 +144,7 @@ const Exercises = ({
   }
 
   function handleKeyDown(e: React.KeyboardEvent<HTMLInputElement>) {
-    if(!isPaused) {
+    if(!isPaused && !isWinner) {
       if (e.key === "Enter") {
         displaySolutionFeedback();
         setUserInput("");
@@ -158,47 +160,63 @@ const Exercises = ({
 
   return (
     <>
-      {isPaused ? (
-      <div className="h1">Pause</div>
+      {isWinner ? (
+        <div className="h1">WINNER - What next?</div>
+      ): isPaused  ? (
+        <div className="h1">Pause</div>
       ) : solutionFeedback ? (
         <div className="h1">{solutionFeedback}</div>
       ) : (
         <div className="h1">{selectedExercise}</div>
       )}
-      <input
-        ref={inputFocusRef}
-        placeholder="Deine Lösung (ENTER zum bestätigen, n zum überspringen)"
-        value={userInput}
-        onChange={handleInputChange}
-        onKeyDown={handleKeyDown}
-        className="form-control"
-      />
-      <button
-        type="button"
-        className="btn btn-primary mt-2"
-        onClick={() => {
-          if(!isPaused) {
-            displaySolutionFeedback();
-            setUserInput("");
-            nextExercise();
-          }
-        }}
-      >
-        Eingabe bestätigen
-      </button>
-      <button
-        type="button"
-        className="btn btn-secondary mt-2 ms-1"
-        onClick={() => {
-          if(!isPaused) {
-            nextExercise();
-            removePoints(setPointsLose, setPoints, skippingPoints);
-            setSkippingPoints(prevState => prevState*2)
-          }
-        }}
-      >
-        Aufgabe überspringen ({skippingPoints})
-      </button>
+      {!isWinner && (
+        <input
+          ref={inputFocusRef}
+          placeholder="Deine Lösung (ENTER zum bestätigen, n zum überspringen)"
+          value={userInput}
+          onChange={handleInputChange}
+          onKeyDown={handleKeyDown}
+          className="form-control"
+        />
+      )}
+      {!isWinner ? (
+        <>
+          <button
+            type="button"
+            className="btn btn-primary mt-2"
+            onClick={() => {
+              if(!isPaused && !isWinner) {
+                displaySolutionFeedback();
+                setUserInput("");
+                nextExercise();
+              }
+            }}
+          >
+            Eingabe bestätigen
+          </button>
+          <button
+            type="button"
+            className="btn btn-secondary mt-2 ms-1"
+            onClick={() => {
+              if(!isPaused && !isWinner) {
+                nextExercise();
+                removePoints(setPointsLose, setPoints, skippingPoints);
+                setSkippingPoints(prevState => prevState*2)
+              }
+            }}
+          >
+            Aufgabe überspringen ({skippingPoints})
+          </button> 
+        </>
+      ) : (
+        <button
+          type="button"
+          className="btn btn-primary mt-2"
+          onClick={playAgain}
+        >
+          Play again
+        </button>
+      )}
     </>
   );
 };

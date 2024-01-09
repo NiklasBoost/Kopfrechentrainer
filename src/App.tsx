@@ -13,6 +13,7 @@ const App = () => {
   const [currentLevel, setCurrentLevel] = useState('superEasy');
   const [currentLevelNumber, setCurrentLevelNumber] = useState(0);
   const [isPaused, setIsPaused] = useState(false);
+  const [isWinner, setIsWinner] = useState(false);
   
   useEffect(() => {
     setTimeout(() => {
@@ -20,6 +21,12 @@ const App = () => {
       setPointsLose(0);
     }, 1500)
   }, [pointsWin, pointsLose]);
+
+  function playAgain() {
+    setPoints(0);
+    setCurrentLevel('superEasy');
+    setCurrentLevelNumber(0)
+  }
 
 
   return (
@@ -56,6 +63,8 @@ const App = () => {
             setCurrentLevelNumber={setCurrentLevelNumber}
             setCurrentLevel={setCurrentLevel}
             isPaused={isPaused}
+            isWinner={isWinner}
+            setIsWinner={setIsWinner}
           />  
         </div>
       </div>
@@ -85,6 +94,8 @@ const App = () => {
             setPointsLose={setPointsLose}
             currentLevel={currentLevel}
             isPaused={isPaused}
+            isWinner={isWinner}
+            playAgain={playAgain}
           />
         </div>
         <div className="col"></div>

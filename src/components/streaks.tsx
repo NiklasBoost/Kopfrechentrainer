@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react"
 
-const Streaks = ({pointsWin, pointsLose}: {pointsWin: Number, pointsLose: Number}) => {
+const Streaks = ({ pointsWin, pointsLose}: { pointsWin: Number, pointsLose: Number}) => {
   const [streak, setStreak] = useState(0);
   const [bestStreak, setBestStreak] = useState(0);
 
@@ -16,6 +16,8 @@ const Streaks = ({pointsWin, pointsLose}: {pointsWin: Number, pointsLose: Number
     }
     setStreak(0);
   }, [pointsLose])
+
+
 
 
   return (
